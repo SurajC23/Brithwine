@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".startupActivity.ActivitySplashScreen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp100"
+            android:layout_gravity="center"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/brithwine_logo"
+            tools:ignore="ContentDescription"/>
+
+        <com.paradisetechnologies.brithwine.fonts.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            android:background="@drawable/custome_ripple"
+            android:layout_gravity="center"
+            android:text="@string/app_name"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp16"
+            app:fontface="qbold"/>
+
+    </LinearLayout>
+
+    <com.paradisetechnologies.brithwine.fonts.MyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/powerd_by"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp12"
+        android:layout_marginBottom="@dimen/dp10"
+        app:fontface="qbold"/>
+
+</RelativeLayout>

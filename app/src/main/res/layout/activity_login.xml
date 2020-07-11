@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".startupActivity.ActivityLogin">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp25"
+            android:layout_marginTop="@dimen/dp80"
+            android:layout_marginRight="@dimen/dp25"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp100"
+                android:layout_height="@dimen/dp100"
+                android:layout_gravity="center"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/brithwine_logo"
+                tools:ignore="ContentDescription"/>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:background="@drawable/custome_ripple"
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp16"
+                app:fontface="qbold"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp110"
+                android:hint="@string/your_email"
+                android:theme="@style/TextLabelNew">
+
+                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    app:etFamily="qregular"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:hint="@string/password"
+                android:theme="@style/TextLabel">
+
+                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textPassword"
+                    android:textColor="@color/white"
+                    app:etFamily="qregular"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp5"
+                android:background="@drawable/custome_ripple"
+                android:gravity="start"
+                android:text="@string/forgot_password"
+                android:textAllCaps="true"
+                android:textColor="@color/red"
+                android:textSize="@dimen/sp13"
+                app:fontface="qmedium"/>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp50"
+                android:background="@drawable/button_bg"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp15"
+                android:paddingBottom="@dimen/dp15"
+                android:text="@string/login"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:fontface="qbold"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical|center"
+                android:layout_marginTop="@dimen/dp20"
+                android:foregroundGravity="center_horizontal"
+                android:layout_gravity="center_horizontal|center"
+                android:orientation="horizontal">
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/dont_have_acc"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp13"
+                    app:fontface="qmedium"/>
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:id="@+id/tvSignUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:gravity="center_horizontal"
+                    android:text="@string/sign_up"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/sp13"
+                    android:textAllCaps="true"
+                    app:fontface="qbold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

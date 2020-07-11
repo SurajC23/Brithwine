@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.paradisetechnologies.brithwine">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_brithwine_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_brithwine_logo_rounded"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".startupActivity.ActivitySplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".startupActivity.ActivityForgotPassword" />
+        <activity android:name=".startupActivity.ActivitySignup"/>
+        <activity android:name=".startupActivity.ActivityLogin"/>
+        <activity android:name=".activity.ActivityHome"/>
+    </application>
+
+</manifest>

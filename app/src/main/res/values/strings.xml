@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Brithwine</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="powerd_by">powered by BRITHWINE</string>
+    <string name="email_id">Email ID</string>
+    <string name="send_password">Send Password</string>
+
+    <!-- Hints. -->
+    <string name="your_name">Enter name</string>
+    <string name="your_email">Enter email id</string>
+    <string name="password">Password</string>
+    <string name="your_phone">Enter phone no</string>
+    <string name="your_class">Enter class</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_password_text">Please enter your registered email id below to reset your password.</string>
+    <string name="dont_have_acc">Don\'t have an account?</string>
+    <string name="sign_up">Sign-Up</string>
+    <string name="login">Login</string>
+</resources>

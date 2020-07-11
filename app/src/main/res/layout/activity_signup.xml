@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".startupActivity.ActivitySignup">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="@color/transparent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/dp32"
+                android:layout_height="@dimen/dp32"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="@dimen/dp5"
+                android:background="@drawable/ripple_5dp"
+                android:padding="@dimen/dp2"
+                android:src="@drawable/back_arrow"/>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp25"
+            android:layout_marginTop="@dimen/dp40"
+            android:layout_marginRight="@dimen/dp25"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="106dp"
+                android:layout_height="@dimen/dp100"
+                android:layout_gravity="center"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/brithwine_logo"
+                tools:ignore="ContentDescription" />
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:background="@drawable/custome_ripple"
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp16"
+                app:fontface="qbold"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp70"
+                android:hint="@string/your_name"
+                android:theme="@style/TextLabelNew">
+
+                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    app:etFamily="qregular"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:hint="@string/your_phone"
+                android:theme="@style/TextLabelNew">
+
+                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    app:etFamily="qregular"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:hint="@string/your_email"
+                android:theme="@style/TextLabelNew">
+
+                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    app:etFamily="qregular"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:hint="@string/password"
+                android:theme="@style/TextLabel">
+
+                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textPassword"
+                    android:textColor="@color/white"
+                    app:etFamily="qregular"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp50"
+                android:background="@drawable/button_bg"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp15"
+                android:paddingBottom="@dimen/dp15"
+                android:text="@string/sign_up"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:fontface="qbold"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

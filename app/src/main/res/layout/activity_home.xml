@@ -1,9 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.ActivityHome">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp18"
+                android:layout_marginLeft="@dimen/dp10"
+                app:fontface="mmedium"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp10"
+                android:background="@drawable/custome_ripple"
+                android:src="@drawable/profile_new"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp0.5"
+        android:background="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/dp10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35"
+                android:layout_marginRight="@dimen/dp5"
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@drawable/spinner_bg">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:spinnerMode="dropdown"/>
+
+                <ImageView
+                    android:layout_width="@dimen/dp10"
+                    android:layout_height="@dimen/dp10"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/down_arrow"
+                    android:tint="@color/white"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35"
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@drawable/spinner_bg">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:spinnerMode="dropdown"/>
+
+                <ImageView
+                    android:layout_width="@dimen/dp10"
+                    android:layout_height="@dimen/dp10"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/down_arrow"
+                    android:tint="@color/white"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+    </ScrollView>
+
+</LinearLayout>

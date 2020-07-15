@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.paradisetechnologies.brithwine.R;
+import com.paradisetechnologies.brithwine.activity.ActivityHome;
 
 public class ActivityLogin extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView tvSignUp, tvForgotPassword;
+    private TextView tvSignUp, tvForgotPassword, tvLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +27,11 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
     {
         tvSignUp = findViewById(R.id.tvSignUp);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
+        tvLogin = findViewById(R.id.tvLogin);
 
         tvSignUp.setOnClickListener(this);
         tvForgotPassword.setOnClickListener(this);
+        tvLogin.setOnClickListener(this);
     }
 
     @Override
@@ -42,6 +45,10 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
             case R.id.tvForgotPassword:
                 callForgotPassActivity();
+                break;
+
+            case R.id.tvLogin:
+                callHomeActivity();
                 break;
 
             default:
@@ -59,5 +66,12 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
     {
         Intent intent = new Intent(ActivityLogin.this, ActivityForgotPassword.class);
         startActivity(intent);
+    }
+
+    private void callHomeActivity()
+    {
+        Intent intent = new Intent(ActivityLogin.this, ActivityHome.class);
+        startActivity(intent);
+        finish();
     }
 }

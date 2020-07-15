@@ -18,4 +18,14 @@
     <string name="sign_up_underline"><u>Sign-Up</u></string>
     <string name="sign_up">Sign-Up</string>
     <string name="login">Login</string>
+
+    <string name="valid_email_id">Valid email id</string>
+    <string name="please_enter_valid_email_id">Please enter valid email id</string>
+    <string name="empty_emailid">This is mandatory field. Please enter your email address.</string>
+    <string name="empty_password">This is mandatory field. Please enter password.</string>
+
+    <string name="empty_name">This is mandatory field. Please enter name.</string>
+    <string name="empty_phone">This is mandatory field. Please enter phone no.</string>
+
+
 </resources>

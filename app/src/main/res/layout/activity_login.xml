@@ -48,6 +48,7 @@
                 android:theme="@style/TextLabelNew">
 
                 <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    android:id="@+id/etEmailID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
@@ -55,6 +56,32 @@
                     app:etFamily="qmedium"/>
 
             </com.google.android.material.textfield.TextInputLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rlVerify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp5"
+                android:visibility="gone">
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:id="@+id/tvEmailVerify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/sp13"
+                    app:fontface="qregular"/>
+
+                <ImageView
+                    android:id="@+id/ivCancel"
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/clear"/>
+
+            </RelativeLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -64,6 +91,7 @@
                 android:theme="@style/TextLabel">
 
                 <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textPassword"

@@ -9,6 +9,10 @@ public class BaseResponseObjectEntity<T> {
     String status;
 
     @Expose
+    @SerializedName("msg_code")
+    int msg_code;
+
+    @Expose
     @SerializedName("data")
     T data;
 
@@ -30,5 +34,15 @@ public class BaseResponseObjectEntity<T> {
     public void setData(T data)
     {
         this.data = data;
+    }
+
+    public int getMsg_code()
+    {
+        return msg_code;
+    }
+
+    public void setMsg_code(int msg_code)
+    {
+        this.msg_code = msg_code;
     }
 }

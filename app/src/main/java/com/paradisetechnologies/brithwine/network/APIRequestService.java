@@ -14,7 +14,7 @@ public interface APIRequestService {
 
     @FormUrlEncoded
     @POST("create-user")
-    Call<BaseResponseObjectEntity> sendRegistrationRequest(@Field("name") String name,
+    Call<BaseResponseObjectEntity<LoginEntity>> sendRegistrationRequest(@Field("name") String name,
                                                            @Field("email") String email,
                                                            @Field("password") String password,
                                                            @Field("phone_number") String phone_number,
@@ -27,7 +27,7 @@ public interface APIRequestService {
 
     @FormUrlEncoded
     @POST("get-all-class")
-    Call<BaseResponseArrayEntity<ClassEntity>> getClassList();
+    Call<BaseResponseArrayEntity<ClassEntity>> getClassList(@Field("optional") String optional);
 
 }
 

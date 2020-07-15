@@ -29,4 +29,9 @@ public class ClassEntity
     {
         this.class_name = class_name;
     }
+
+    @Override
+    public String toString() {
+        return getClass_name();
+    }
 }

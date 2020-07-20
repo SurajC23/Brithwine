@@ -111,11 +111,11 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
         switch (view.getId())
         {
             case R.id.tvSignUp:
-                callSignupActivity();
+                StatMethods.startNewActivity(ActivityLogin.this, ActivitySignup.class);
                 break;
 
             case R.id.tvForgotPassword:
-                callForgotPassActivity();
+                StatMethods.startNewActivity(ActivityLogin.this, ActivityForgotPassword.class);
                 break;
 
             case R.id.tvLogin:
@@ -125,18 +125,6 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
             default:
                 break;
         }
-    }
-
-    private void callSignupActivity()
-    {
-        Intent intent = new Intent(ActivityLogin.this, ActivitySignup.class);
-        startActivity(intent);
-    }
-
-    private void callForgotPassActivity()
-    {
-        Intent intent = new Intent(ActivityLogin.this, ActivityForgotPassword.class);
-        startActivity(intent);
     }
 
     private void validate()
@@ -165,6 +153,7 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
     private void sendLoginRequest(String email, String password)
     {
+        StatMethods.loadingView(this, true);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity<LoginEntity>> call = apiRequestService.sendLoginRequest(email, password);
         call.enqueue(new Callback<BaseResponseObjectEntity<LoginEntity>>() {
@@ -183,7 +172,7 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
                             if (loginEntity != null)
                             {
                                 int userId = loginEntity.getId();
-                                String token = "Bearer  " + loginEntity.getApi_token();
+                                String token = "Bearer " + loginEntity.getApi_token();
                                 String name = loginEntity.getName();
                                 String email = loginEntity.getEmail();
                                 String classId = loginEntity.getClass_id();
@@ -194,8 +183,8 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
                                 UtilitySharedPreferences.setPrefs(ActivityLogin.this, AppConstants.SHAREDPREFERENCES.USER_EMAIL, email);
                                 UtilitySharedPreferences.setPrefs(ActivityLogin.this, AppConstants.SHAREDPREFERENCES.USER_CLASSID, classId);
 
-                                GlobalApplication.authorizationToken = UtilitySharedPreferences.getPrefs(ActivityLogin.this, AppConstants.SHAREDPREFERENCES.USER_AUTH_TOKEN);
-                                startNextActivity();
+                                StatMethods.loadingView(ActivityLogin.this, false);
+                                StatMethods.startNewActivity(ActivityLogin.this, ActivityHome.class);
                             }
                         }
                         else if (status.equals(AppConstants.ERROR))
@@ -213,13 +202,5 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
             }
         });
-
-    }
-
-    private void startNextActivity()
-    {
-        Intent intent = new Intent(ActivityLogin.this, ActivityHome.class);
-        startActivity(intent);
-        finish();
     }
 }

@@ -3,7 +3,7 @@
     package="com.paradisetechnologies.brithwine">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".startupActivity.ActivityForgotPassword_LinkSent"></activity>
         <activity android:name=".startupActivity.ActivitySplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".startupActivity.ActivityForgotPassword" />
-        <activity android:name=".startupActivity.ActivitySignup"/>
-        <activity android:name=".startupActivity.ActivityLogin"/>
-        <activity android:name=".activity.ActivityHome"/>
+        <activity android:name=".startupActivity.ActivitySignup" />
+        <activity android:name=".startupActivity.ActivityLogin" />
+        <activity android:name=".activity.ActivityHome" />
     </application>
 
 </manifest>

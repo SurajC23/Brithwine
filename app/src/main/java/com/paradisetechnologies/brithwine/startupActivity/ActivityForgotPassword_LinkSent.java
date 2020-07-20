@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,30 +20,34 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ActivityForgotPassword extends AppCompatActivity implements View.OnClickListener
+public class ActivityForgotPassword_LinkSent extends AppCompatActivity implements View.OnClickListener
 {
-    private TextView tvSendPassword;
     private ImageView ivBackArrow;
-    private EditText etEmailID;
-    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    private Button btnResendMail;
+    private TextView tvBack;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.activity_forgot_password_link_sent);
+
+        Intent intent = getIntent();
+        email = intent.getStringExtra("USER_MAIL");
 
         bindViews();
     }
 
     private void bindViews()
     {
-        tvSendPassword = findViewById(R.id.tvSendPassword);
+        btnResendMail = findViewById(R.id.btnResendMail);
         ivBackArrow = findViewById(R.id.ivBackArrow);
-        etEmailID = findViewById(R.id.etEmailID);
+        tvBack = findViewById(R.id.tvBack);
 
-        tvSendPassword.setOnClickListener(this);
+        btnResendMail.setOnClickListener(this);
         ivBackArrow.setOnClickListener(this);
+        tvBack.setOnClickListener(this);
     }
 
     @Override
@@ -51,12 +55,16 @@ public class ActivityForgotPassword extends AppCompatActivity implements View.On
     {
         switch (view.getId())
         {
-            case R.id.tvSendPassword:
-                validate();
+            case R.id.btnResendMail:
+                resendMail();
                 break;
 
             case R.id.ivBackArrow:
-                StatMethods.startNewActivity(ActivityForgotPassword.this, ActivityLogin.class);
+                StatMethods.startNewActivity(ActivityForgotPassword_LinkSent.this, ActivityLogin.class);
+                break;
+
+            case R.id.tvBack:
+                StatMethods.startNewActivity(ActivityForgotPassword_LinkSent.this, ActivityLogin.class);
                 break;
 
             default:
@@ -64,24 +72,7 @@ public class ActivityForgotPassword extends AppCompatActivity implements View.On
         }
     }
 
-    private void validate()
-    {
-        String email = etEmailID.getText().toString().trim();
-
-        if (email.equals(""))
-        {
-            StatMethods.showToastShort(this, getString(R.string.empty_emailid));
-            return;
-        }
-        else if (!email.matches(emailPattern))
-        {
-            StatMethods.showToastShort(this, getString(R.string.please_enter_valid_email_id));
-            return;
-        }
-        sendPassword(email);
-    }
-
-    private void sendPassword(final String email)
+    private void resendMail()
     {
         StatMethods.loadingView(this, true);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
@@ -99,11 +90,8 @@ public class ActivityForgotPassword extends AppCompatActivity implements View.On
                         String status = entity.getStatus();
                         if (status.equals(AppConstants.SUCCESS))
                         {
-                            startNewActivity(email);
-                        }
-                        else if (status.equals(AppConstants.ERROR))
-                        {
-                            StatMethods.showToastShort(ActivityForgotPassword.this, getString(R.string.user_not_exist));
+                            StatMethods.loadingView(ActivityForgotPassword_LinkSent.this, false);
+                            StatMethods.showToastShort(ActivityForgotPassword_LinkSent.this, getString(R.string.verification_mail));
                         }
                     }
                 }
@@ -115,12 +103,5 @@ public class ActivityForgotPassword extends AppCompatActivity implements View.On
 
             }
         });
-    }
-
-    private void startNewActivity(String email)
-    {
-        Intent intent = new Intent(ActivityForgotPassword.this, ActivityForgotPassword_LinkSent.class);
-        intent.putExtra("USER_MAIL", email);
-        startActivity(intent);
     }
 }

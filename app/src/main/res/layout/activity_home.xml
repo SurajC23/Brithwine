@@ -62,10 +62,10 @@
                 android:layout_marginRight="@dimen/dp5"
                 android:layout_alignParentTop="true"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:background="@drawable/spinner_bg">
+                android:orientation="horizontal">
 
                 <Spinner
+                    android:id="@+id/spClass"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
@@ -95,10 +95,10 @@
                 android:layout_marginLeft="@dimen/dp5"
                 android:layout_alignParentTop="true"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:background="@drawable/spinner_bg">
+                android:orientation="horizontal">
 
                 <Spinner
+                    android:id="@+id/spSubject"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
@@ -127,11 +127,54 @@
 
     </LinearLayout>
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="match_parent">
 
-    </ScrollView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVideos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp10"/>
+
+        <LinearLayout
+            android:id="@+id/error_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:id="@+id/tv_errorMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp20"
+                android:text="@string/videolist_error"
+                app:fontface="qbold"/>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:id="@+id/tv_middleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp10"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp14"
+                android:text="@string/videolist_explore"
+                app:fontface="qmedium"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -27,5 +27,18 @@
     <string name="empty_name">This is mandatory field. Please enter name.</string>
     <string name="empty_phone">This is mandatory field. Please enter phone no.</string>
 
+    <string name="linksent">Link Sent!</string>
+    <string name="resend_link">Resend the link</string>
+    <string name="back">Back</string>
+    <string name="verification_mail">Please check your email. We\'ve sent you a link. Just click on it and set your new password.</string>
+    <string name="user_not_exist">User doesn\'t exist</string>
+
+    <string name="videolist_error">Looks like they haven’t added \n anything to this list yet!</string>
+    <string name="videolist_explore">Explore another classes to discover more \nsubjective videos, and grow your self.</string>
+
+    <string name="quiz_text">Their is quiz for this video \nis avalible for download</string>
+    <string name="download_quiz">Download Quiz</string>
+    <string name="play_video">Play Video</string>
+
 
 </resources>

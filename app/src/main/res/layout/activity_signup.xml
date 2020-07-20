@@ -160,7 +160,7 @@
                 android:paddingBottom="@dimen/dp15"
                 android:text="@string/sign_up"
                 android:textAllCaps="true"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="13sp"
                 app:fontface="qbold"/>
 

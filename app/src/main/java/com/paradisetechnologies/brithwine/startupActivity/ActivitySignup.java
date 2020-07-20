@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,7 +26,6 @@ import com.paradisetechnologies.brithwine.utils.StatMethods;
 import com.paradisetechnologies.brithwine.utils.UtilitySharedPreferences;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -50,7 +48,6 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        getClassList();
         bindViews();
     }
 
@@ -73,8 +70,8 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
                             classEntityArrayList = entity.getData();
                             if (classEntityArrayList != null && classEntityArrayList.size() > 0)
                             {
-                                classAdapter = new ArrayAdapter(ActivitySignup.this, R.layout.spinner_item, classEntityArrayList);
-                                classAdapter.setDropDownViewResource(R.layout.spinner_item);
+                                classAdapter = new ArrayAdapter(ActivitySignup.this, R.layout.spinner_item_black, classEntityArrayList);
+                                classAdapter.setDropDownViewResource(R.layout.spinner_item_white);
                                 spClass.setAdapter(classAdapter);
                             }
                         }
@@ -108,6 +105,8 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
 
         tvSignUp.setOnClickListener(this);
         ivBackArrow.setOnClickListener(this);
+
+        getClassList();
 
         spClass.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -182,6 +181,7 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
 
     private void registerUser(String name, String phone, String email, String password, String selectedClassId)
     {
+        StatMethods.loadingView(this, true);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity<LoginEntity>> call = apiRequestService.sendRegistrationRequest(name, email, password, phone, selectedClassId);
         call.enqueue(new Callback<BaseResponseObjectEntity<LoginEntity>>() {
@@ -200,7 +200,7 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
                             if (loginEntity != null)
                             {
                                 int userId = loginEntity.getId();
-                                String token = "Bearer  " + loginEntity.getApi_token();
+                                String token = "Bearer " + loginEntity.getApi_token();
                                 String name = loginEntity.getName();
                                 String email = loginEntity.getEmail();
                                 String classId = loginEntity.getClass_id();
@@ -211,7 +211,7 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
                                 UtilitySharedPreferences.setPrefs(ActivitySignup.this, AppConstants.SHAREDPREFERENCES.USER_EMAIL, email);
                                 UtilitySharedPreferences.setPrefs(ActivitySignup.this, AppConstants.SHAREDPREFERENCES.USER_CLASSID, classId);
 
-                                GlobalApplication.authorizationToken = UtilitySharedPreferences.getPrefs(ActivitySignup.this, AppConstants.SHAREDPREFERENCES.USER_AUTH_TOKEN);
+                                StatMethods.loadingView(ActivitySignup.this, false);
                                 startNextActivity();
                             }
                         }

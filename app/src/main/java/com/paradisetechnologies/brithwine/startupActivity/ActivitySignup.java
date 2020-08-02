@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.paradisetechnologies.brithwine.GlobalApplication;
 import com.paradisetechnologies.brithwine.R;
 import com.paradisetechnologies.brithwine.activity.ActivityHome;
+import com.paradisetechnologies.brithwine.activity.ActivitySubscription;
 import com.paradisetechnologies.brithwine.constants.AppConstants;
 import com.paradisetechnologies.brithwine.entity.BaseResponseArrayEntity;
 import com.paradisetechnologies.brithwine.entity.BaseResponseObjectEntity;
@@ -181,7 +182,7 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
 
     private void registerUser(String name, String phone, String email, String password, String selectedClassId)
     {
-        StatMethods.loadingView(this, true);
+        StatMethods.loadingView(ActivitySignup.this, true);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity<LoginEntity>> call = apiRequestService.sendRegistrationRequest(name, email, password, phone, selectedClassId);
         call.enqueue(new Callback<BaseResponseObjectEntity<LoginEntity>>() {
@@ -217,6 +218,7 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
+                            StatMethods.loadingView(ActivitySignup.this, false);
                             int msgCode = entity.getMsg_code();
                             StatMethods.showMsgCode(ActivitySignup.this, msgCode);
                         }
@@ -227,7 +229,6 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onFailure(Call<BaseResponseObjectEntity<LoginEntity>> call, Throwable t)
             {
-
             }
         });
     }

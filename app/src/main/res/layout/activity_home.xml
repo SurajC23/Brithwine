@@ -5,36 +5,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.ActivityHome">
+    android:id="@+id/llMain">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mToolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp50"
-        android:background="@color/black">
+        android:background="@color/white">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="@string/app_name"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp18"
-                android:layout_marginLeft="@dimen/dp10"
-                app:fontface="mmedium"/>
+                android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="@dimen/dp20"
-                android:layout_height="@dimen/dp20"
+                <RelativeLayout
+                    android:id="@+id/rlMenu"
+                    android:layout_width="@dimen/dp25"
+                    android:layout_height="@dimen/dp25"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp20"
+                        android:layout_height="@dimen/dp20"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_menu"
+                        android:tint="@color/black"/>
+
+                </RelativeLayout>
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:text="@string/app_name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp18"
+                    app:fontface="mbold"/>
+
+            </LinearLayout>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:id="@+id/tvSubscribed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dp10"
-                android:background="@drawable/custome_ripple"
-                android:src="@drawable/profile_new"
-                android:layout_centerVertical="true"/>
+                android:checked="false"
+                style="@style/BtnClick"
+                android:paddingStart="@dimen/dp15"
+                android:paddingEnd="@dimen/dp15"
+                android:paddingBottom="@dimen/dp6"
+                android:paddingTop="@dimen/dp6"
+                android:drawableStart="@drawable/subscribe_crown"
+                android:drawablePadding="@dimen/dp9"
+                android:gravity="center_vertical"
+                android:text="@string/subscribe_home"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp13"
+                android:visibility="visible"
+                app:fontface="qbold"/>
 
         </RelativeLayout>
 
@@ -46,9 +85,11 @@
         android:background="@color/white"/>
 
     <LinearLayout
+        android:id="@+id/llTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black">
+        android:background="@color/white"
+        android:elevation="@dimen/dp5">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,7 +103,8 @@
                 android:layout_marginRight="@dimen/dp5"
                 android:layout_alignParentTop="true"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/spinner_bg">
 
                 <Spinner
                     android:id="@+id/spClass"
@@ -85,7 +127,7 @@
                     android:layout_centerVertical="true"
                     android:layout_gravity="center"
                     android:src="@drawable/down_arrow"
-                    android:tint="@color/white"/>
+                    android:tint="@color/black"/>
 
             </RelativeLayout>
 
@@ -95,7 +137,8 @@
                 android:layout_marginLeft="@dimen/dp5"
                 android:layout_alignParentTop="true"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/spinner_bg">
 
                 <Spinner
                     android:id="@+id/spSubject"
@@ -118,10 +161,9 @@
                     android:layout_centerVertical="true"
                     android:layout_gravity="center"
                     android:src="@drawable/down_arrow"
-                    android:tint="@color/white"/>
+                    android:tint="@color/black"/>
 
             </RelativeLayout>
-
 
         </LinearLayout>
 
@@ -129,7 +171,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/rlMain">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvVideos"

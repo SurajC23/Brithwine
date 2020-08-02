@@ -1,21 +1,17 @@
 package com.paradisetechnologies.brithwine.startupActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.paradisetechnologies.brithwine.GlobalApplication;
 import com.paradisetechnologies.brithwine.R;
 import com.paradisetechnologies.brithwine.activity.ActivityHome;
 import com.paradisetechnologies.brithwine.constants.AppConstants;
@@ -189,6 +185,7 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
+                            StatMethods.loadingView(ActivityLogin.this, false);
                             int msgCode = entity.getMsg_code();
                             StatMethods.showMsgCode(ActivityLogin.this, msgCode);
                         }
@@ -199,7 +196,6 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
             @Override
             public void onFailure(Call<BaseResponseObjectEntity<LoginEntity>> call, Throwable t)
             {
-
             }
         });
     }

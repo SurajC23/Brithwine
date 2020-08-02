@@ -83,7 +83,6 @@ public class ActivityForgotPassword extends AppCompatActivity implements View.On
 
     private void sendPassword(final String email)
     {
-        StatMethods.loadingView(this, true);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity> call = apiRequestService.getForgotPassword(email);
         call.enqueue(new Callback<BaseResponseObjectEntity>() {
@@ -112,7 +111,6 @@ public class ActivityForgotPassword extends AppCompatActivity implements View.On
             @Override
             public void onFailure(Call<BaseResponseObjectEntity> call, Throwable t)
             {
-
             }
         });
     }

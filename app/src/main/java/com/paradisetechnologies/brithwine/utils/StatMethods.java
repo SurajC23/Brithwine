@@ -17,11 +17,18 @@ import android.widget.Toast;
 
 import com.paradisetechnologies.brithwine.R;
 import com.paradisetechnologies.brithwine.constants.AppConstants;
-import com.paradisetechnologies.brithwine.startupActivity.ActivitySplashScreen;
+import com.paradisetechnologies.brithwine.interfcae.DownloadClick;
+import com.paradisetechnologies.brithwine.interfcae.PlayVideoClick;
+import com.paradisetechnologies.brithwine.interfcae.SubscribedNowClicked;
+import com.paradisetechnologies.brithwine.startupActivity.ActivityLogin;
+
 
 public class StatMethods
 {
     private static Dialog dialog;
+    private static DownloadClick downloadClick;
+    private static PlayVideoClick playVideoClick;
+    private static SubscribedNowClicked subscribedNowClicked;
 
     public static void showToastLong(Context context, String message)
     {
@@ -47,7 +54,7 @@ public class StatMethods
         }
         else if (msg_code == 3)
         {
-            showToastShort(context, AppConstants.TOKEN_MISMATCH);
+            StatMethods.showTokenMistmacthBoxDialog((Activity) context);
         }
     }
 
@@ -99,7 +106,8 @@ public class StatMethods
         return UtilitySharedPreferences.getPrefs(context, AppConstants.SHAREDPREFERENCES.USER_AUTH_TOKEN);
     }
 
-    public static void showQuizBoxDialog(Activity activity)
+    public static void showQuizBoxDialog(final Activity activity, final String quiz_file_path, final int videoID,
+                                         final String video_path, final String title, final String thumbnail_path)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.myDialog);
         LayoutInflater inflater = activity.getLayoutInflater();
@@ -107,6 +115,8 @@ public class StatMethods
         builder.setView(lockedView);
 
         ImageView ivExit = lockedView.findViewById(R.id.ivExit);
+        TextView tvDownloadQuiz = lockedView.findViewById(R.id.tvDownloadQuiz);
+        TextView tvPlayVideo = lockedView.findViewById(R.id.tvPlayVideo);
 
         final AlertDialog lockedContentDialog = builder.create();
 
@@ -115,6 +125,28 @@ public class StatMethods
             @Override
             public void onClick(View view)
             {
+                lockedContentDialog.dismiss();
+            }
+        });
+
+        tvPlayVideo.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                playVideoClick = (PlayVideoClick) activity;
+                playVideoClick.playVideoClicked(video_path, videoID, title, thumbnail_path);
+                lockedContentDialog.dismiss();
+            }
+        });
+
+        tvDownloadQuiz.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                downloadClick = (DownloadClick) activity;
+                downloadClick.dwnloadClicked(quiz_file_path, videoID);
                 lockedContentDialog.dismiss();
             }
         });
@@ -144,5 +176,59 @@ public class StatMethods
             e.printStackTrace();
         }
         return metrics.widthPixels;
+    }
+
+    public static void showTokenMistmacthBoxDialog(final Activity activity)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.myDialog);
+        LayoutInflater inflater = activity.getLayoutInflater();
+        View lockedView = inflater.inflate(R.layout.token_misnatch_dialog_box, null);
+        builder.setView(lockedView);
+
+        TextView tvLoginAgain = lockedView.findViewById(R.id.tvLoginAgain);
+
+        final AlertDialog lockedContentDialog = builder.create();
+
+        tvLoginAgain.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                StatMethods.startNewActivity(activity, ActivityLogin.class);
+            }
+        });
+
+        lockedContentDialog.getWindow().setGravity(Gravity.CENTER);
+        lockedContentDialog.setCancelable(false);
+        lockedContentDialog.show();
+        lockedContentDialog.getWindow().setLayout(getWidth(activity, 1.5), WindowManager.LayoutParams.WRAP_CONTENT);
+    }
+
+    public static void showSubscriptionBoxDialog(final Activity activity, String selectedClassId, String selectedClassFee, String selectedClassName)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.myDialog);
+        LayoutInflater inflater = activity.getLayoutInflater();
+        View lockedView = inflater.inflate(R.layout.subscription_dialog_box, null);
+        builder.setView(lockedView);
+
+        TextView tvSubscribeNow = lockedView.findViewById(R.id.tvSubscribeNow);
+
+        final AlertDialog lockedContentDialog = builder.create();
+
+        tvSubscribeNow.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                subscribedNowClicked = (SubscribedNowClicked) activity;
+                subscribedNowClicked.subscribeNowClicked(selectedClassId, selectedClassFee, selectedClassName);
+                lockedContentDialog.dismiss();
+            }
+        });
+
+        lockedContentDialog.getWindow().setGravity(Gravity.CENTER);
+        lockedContentDialog.setCancelable(true);
+        lockedContentDialog.show();
+        lockedContentDialog.getWindow().setLayout(getWidth(activity, 1.5), WindowManager.LayoutParams.WRAP_CONTENT);
     }
 }

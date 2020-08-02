@@ -53,11 +53,9 @@
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/black"
-                    app:etFamily="qmedium"
-                    android:text="chavansuraj35@gmail.com"/>
+                    app:etFamily="qmedium"/>
 
             </com.google.android.material.textfield.TextInputLayout>
-
 
             <RelativeLayout
                 android:id="@+id/rlVerify"
@@ -97,8 +95,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text|textPassword"
                     android:textColor="@color/black"
-                    app:etFamily="qmedium"
-                    android:text="123456"/>
+                    app:etFamily="qmedium"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

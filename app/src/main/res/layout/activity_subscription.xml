@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".activity.ActivitySubscription">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:id="@+id/ivBackArrow"
+            android:layout_width="@dimen/dp24"
+            android:layout_height="@dimen/dp24"
+            android:background="@drawable/ripple_5dp"
+            android:src="@drawable/back_arrow"
+            android:tint="@color/black"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/dp10">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp200"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp200"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/sundent_vector_new"
+                        android:scaleType="fitXY"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/border_red"
+                        android:layout_gravity="center_vertical"
+                        android:padding="@dimen/dp20">
+
+                        <com.paradisetechnologies.brithwine.fonts.MyTextView
+                            android:id="@+id/tvClassName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp21"
+                            app:fontface="mbold"
+                            android:textAllCaps="true"/>
+
+                        <View
+                            android:id="@+id/view"
+                            android:layout_below="@id/tvClassName"
+                            android:layout_width="@dimen/dp50"
+                            android:layout_height="@dimen/dp1"
+                            android:background="@color/red"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:layout_marginBottom="@dimen/dp15"/>
+
+                        <LinearLayout
+                            android:layout_below="@id/view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                                android:id="@+id/tvClassFee"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp21"
+                                app:fontface="mbold"/>
+
+                            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/grey"
+                                android:text="per year"
+                                android:gravity="center_horizontal"
+                                android:textSize="@dimen/sp15"
+                                app:fontface="mregular"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/rvSubjectNames"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:id="@+id/tvPay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp50"
+                android:background="@drawable/button_bg"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp15"
+                android:paddingBottom="@dimen/dp15"
+                android:text="@string/subscribe_now"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:fontface="qbold"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

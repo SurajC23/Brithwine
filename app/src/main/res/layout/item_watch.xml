@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rlWatchAnyW"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/dp180">
+    android:layout_width="@dimen/dp380"
+    android:layout_height="@dimen/dp245">
 
     <ImageView
         android:id="@+id/ivBanner"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp160"
+        android:layout_height="match_parent"
         android:layout_marginStart="@dimen/dp4"
         android:layout_marginEnd="@dimen/dp4"
         android:layout_marginBottom="@dimen/dp8"
@@ -36,17 +35,5 @@
         android:max="100"
         android:progressDrawable="@drawable/progress_drawable"
         android:visibility="gone" />
-
-    <com.paradisetechnologies.brithwine.fonts.MyTextView
-        android:id="@+id/tvVideoTitle"
-        android:layout_below="@id/prDuration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp4"
-        android:gravity="center_horizontal"
-        android:textColor="@color/black"
-        android:textSize="@dimen/sp15"
-        app:fontface="qmedium"
-        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

@@ -18,6 +18,7 @@
     <string name="sign_up_underline"><u>Sign-Up</u></string>
     <string name="sign_up">Sign-Up</string>
     <string name="login">Login</string>
+    <string name="login_again">Login again</string>
 
     <string name="valid_email_id">Valid email id</string>
     <string name="please_enter_valid_email_id">Please enter valid email id</string>
@@ -39,6 +40,19 @@
     <string name="quiz_text">Their is quiz for this video \nis avalible for download</string>
     <string name="download_quiz">Download Quiz</string>
     <string name="play_video">Play Video</string>
+    <string name="pay">Pay</string>
+    <string name="subscribe_now">Subscribe now</string>
+    <string name="havent_subscribe">You haven\'t subscribe for this \nclass to watch this videos.</string>
+    <string name="token_mistmacth">User token mistmatch \n Please login again</string>
+    <string name="subscribe_home">Subscribed</string>
+    <string name="unsubscribe_home">Unsubscribed</string>
+    <string name="video_details">Video Details</string>
+    <string name="payment_successfull">Payment successfull</string>
+    <string name="profile">Profile</string>
+    <string name="save">Save</string>
+    <string name="update_profile_successfull">Profile successfully updated</string>
+    <string name="edit">Edit</string>
+    <string name="logout">Logout</string>
 
 
 </resources>

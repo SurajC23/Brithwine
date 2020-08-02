@@ -105,7 +105,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:textColor="@color/black"
-                    app:etFamily="qmedium"/>
+                    app:etFamily="qmedium"
+                    android:maxLength="10"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

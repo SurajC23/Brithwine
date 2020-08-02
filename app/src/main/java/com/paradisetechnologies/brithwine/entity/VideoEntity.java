@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class VideoEntity
 {
+
+    @SerializedName("id")
+    int videoID;
+
     @SerializedName("title")
     String title;
 
@@ -21,6 +25,14 @@ public class VideoEntity
 
     @SerializedName("quiz_file_path")
     String quiz_file_path;
+
+    public int getVideoID() {
+        return videoID;
+    }
+
+    public void setVideoID(int videoID) {
+        this.videoID = videoID;
+    }
 
     public String getTitle() {
         return title;

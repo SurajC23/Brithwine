@@ -14,30 +14,51 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".startupActivity.ActivityEmailOtpConfirmaion"></activity>
-        <activity android:name=".activity.ActivityUserSubscription" />
-        <activity android:name=".activity.ActivityProfile" />
+        <activity android:name=".startupActivity.ActivityEmailOtpConfirmaion"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.ActivityUserSubscription"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.ActivityProfile"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".activity.ActivityContentDetail"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity android:name=".activity.ActivitySubscription" />
-        <activity android:name=".startupActivity.ActivityForgotPassword_LinkSent" />
-        <activity android:name=".startupActivity.ActivitySplashScreen">
+
+        <activity android:name=".activity.ActivitySubscription"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".startupActivity.ActivityForgotPassword_LinkSent"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".startupActivity.ActivitySplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".startupActivity.ActivityForgotPassword" />
-        <activity android:name=".startupActivity.ActivitySignup" />
-        <activity android:name=".startupActivity.ActivityLogin" />
+
+        <activity android:name=".startupActivity.ActivityForgotPassword"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".startupActivity.ActivitySignup"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".startupActivity.ActivityLogin"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".activity.ActivityHome"
-            android:screenOrientation="portrait" /> <!-- Add your API key here -->
+            android:screenOrientation="portrait" />
+
         <meta-data
             android:name="com.razorpay.ApiKey"
             android:value="rzp_test_WT8Gn7My3mDekR" />
+
         <meta-data
             android:name="JW_LICENSE_KEY"
             android:value="8kaI6aJn+a0F3/QU3m0T+tXDZIemtI8CeGZAfurWAmubOrYb3WjAdEVscSDvc9LH" />

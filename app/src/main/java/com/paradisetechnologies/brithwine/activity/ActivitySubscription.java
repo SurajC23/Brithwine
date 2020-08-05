@@ -237,7 +237,8 @@ public class ActivitySubscription extends AppCompatActivity implements PaymentRe
 
     private void startNewActivity()
     {
-        Intent intent = new Intent(ActivitySubscription.this, ActivityUserSubscription.class);
+        Intent intent = new Intent(ActivitySubscription.this, ActivityHome.class);
+        intent.putExtra("which", 2);
         startActivity(intent);
         finish();
     }

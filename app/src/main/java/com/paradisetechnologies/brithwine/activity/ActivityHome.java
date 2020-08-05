@@ -67,6 +67,7 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
     private TextView tvSubscribed;
     private boolean isSubscribe = false;
     private DownloadZipFileTask downloadZipFileTask;
+    private int whichPage = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -76,6 +77,16 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
 
         verifyToken();
         bindViews();
+
+        Intent i = getIntent();
+        if (i != null)
+        {
+            whichPage = i.getIntExtra("which", 0);
+        }
+        if (whichPage != 0)
+        {
+            getClassList();
+        }
 
     }
 
@@ -207,6 +218,7 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
                         String status = entity.getStatus();
                         if (status.equals(AppConstants.SUCCESS))
                         {
+                            classEntityArrayList = new ArrayList<>();
                             classEntityArrayList = entity.getData();
                             if (classEntityArrayList != null && classEntityArrayList.size() > 0)
                             {

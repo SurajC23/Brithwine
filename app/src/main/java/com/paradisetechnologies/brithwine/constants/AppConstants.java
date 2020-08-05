@@ -4,7 +4,7 @@ public class AppConstants
 {
     public static final String SUCCESS = "success";
     public static final String ERROR = "error";
-    public static final String VALIDATION_FAIL = "Validation fail";
+    public static final String VALIDATION_FAIL = "These credentials do not match our records.";
     public static final String EXCEPTION_ERROR = "Exception Error";
     public static final String TOKEN_MISMATCH = "Token Mismatch";
 
@@ -26,5 +26,8 @@ public class AppConstants
         public static final String VIDEO_URL = "video_url";
         public static final String VIDEO_TITLE = "video_title";
         public static final String VIDEO_IMG = "video_img";
+        public static final String VIDEO_DESC = "video_desc";
+
+        public static final String FROM_ACTIVITY = "from_activity";
     }
 }

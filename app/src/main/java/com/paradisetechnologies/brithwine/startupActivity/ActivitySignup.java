@@ -182,7 +182,7 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
 
     private void registerUser(String name, String phone, String email, String password, String selectedClassId)
     {
-        StatMethods.loadingView(ActivitySignup.this, true);
+        StatMethods.showDialog(this);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity<LoginEntity>> call = apiRequestService.sendRegistrationRequest(name, email, password, phone, selectedClassId);
         call.enqueue(new Callback<BaseResponseObjectEntity<LoginEntity>>() {
@@ -197,6 +197,8 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
                         String status = entity.getStatus();
                         if (status.equals(AppConstants.SUCCESS))
                         {
+                            StatMethods.dismissDialog();
+
                             LoginEntity loginEntity = (LoginEntity) entity.getData();
                             if (loginEntity != null)
                             {
@@ -206,19 +208,12 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
                                 String email = loginEntity.getEmail();
                                 String classId = loginEntity.getClass_id();
 
-                                UtilitySharedPreferences.setPrefs(ActivitySignup.this, AppConstants.SHAREDPREFERENCES.USER_ID, ""+userId);
-                                UtilitySharedPreferences.setPrefs(ActivitySignup.this, AppConstants.SHAREDPREFERENCES.USER_AUTH_TOKEN, token);
-                                UtilitySharedPreferences.setPrefs(ActivitySignup.this, AppConstants.SHAREDPREFERENCES.USER_NAME, name);
-                                UtilitySharedPreferences.setPrefs(ActivitySignup.this, AppConstants.SHAREDPREFERENCES.USER_EMAIL, email);
-                                UtilitySharedPreferences.setPrefs(ActivitySignup.this, AppConstants.SHAREDPREFERENCES.USER_CLASSID, classId);
-
-                                StatMethods.loadingView(ActivitySignup.this, false);
-                                startNextActivity();
+                                startNextActivity(userId, token, name, email, classId);
                             }
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
-                            StatMethods.loadingView(ActivitySignup.this, false);
+                            StatMethods.dismissDialog();
                             int msgCode = entity.getMsg_code();
                             StatMethods.showMsgCode(ActivitySignup.this, msgCode);
                         }
@@ -233,9 +228,14 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
         });
     }
 
-    private void startNextActivity()
+    private void startNextActivity(int userId, String token, String name, String email, String classId)
     {
-        Intent intent = new Intent(ActivitySignup.this, ActivityHome.class);
+        Intent intent = new Intent(ActivitySignup.this, ActivityEmailOtpConfirmaion.class);
+        intent.putExtra(AppConstants.SHAREDPREFERENCES.USER_ID, String.valueOf(userId));
+        intent.putExtra(AppConstants.SHAREDPREFERENCES.USER_AUTH_TOKEN, token);
+        intent.putExtra(AppConstants.SHAREDPREFERENCES.USER_NAME, name);
+        intent.putExtra(AppConstants.SHAREDPREFERENCES.USER_EMAIL, email);
+        intent.putExtra(AppConstants.SHAREDPREFERENCES.USER_CLASSID, classId);
         startActivity(intent);
         finish();
     }

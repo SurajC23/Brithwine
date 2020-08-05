@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ActivityContentDetail">
+    android:orientation="vertical"
+    tools:context=".activity.ActivityUserSubscription">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mToolbar"
@@ -30,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="@string/video_details"
+                android:text="@string/subscriptions"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp16"
                 android:layout_marginLeft="@dimen/dp10"
@@ -40,46 +41,41 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
-        android:layout_below="@id/mToolbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <com.longtailvideo.jwplayer.JWPlayerView
-            xmlns:jwp="http://schemas.android.com/apk/lib/com.longtailvideo.jwplayer"
-            android:id="@+id/jwplayer"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp250"
-            android:nestedScrollingEnabled="false"
-            android:visibility="visible"
-            jwp:jw_autostart="true" />
-
-        <com.paradisetechnologies.brithwine.fonts.MyTextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp10"
-            android:layout_marginTop="@dimen/dp10"
-            android:layout_marginEnd="@dimen/dp10"
-            android:textSize="@dimen/sp15"
-            android:textColor="@color/cherry_red"
-            app:fontface="mbold"/>
-
-        <com.paradisetechnologies.brithwine.fonts.MyTextView
-            android:id="@+id/tvDesc"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSubscriptions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp10"
-            android:layout_marginTop="@dimen/dp10"
-            android:layout_marginEnd="@dimen/dp10"
-            android:textSize="@dimen/sp12"
-            android:textColor="@color/black"
-            app:fontface="mmedium"/>
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/dp15"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
+        <LinearLayout
+            android:id="@+id/error_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-    </LinearLayout>
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:id="@+id/tv_errorMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp20"
+                android:text="@string/subscription_error"
+                app:fontface="qbold"/>
 
-</RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

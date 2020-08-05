@@ -6,6 +6,7 @@ import com.paradisetechnologies.brithwine.entity.ClassEntity;
 import com.paradisetechnologies.brithwine.entity.LoginEntity;
 import com.paradisetechnologies.brithwine.entity.OrderIdEntity;
 import com.paradisetechnologies.brithwine.entity.SubjectEntity;
+import com.paradisetechnologies.brithwine.entity.SubscriptionEntity;
 import com.paradisetechnologies.brithwine.entity.UserClassEntity;
 import com.paradisetechnologies.brithwine.entity.UserEntity;
 import com.paradisetechnologies.brithwine.entity.VideoEntity;
@@ -32,7 +33,8 @@ public interface APIRequestService {
 
     @FormUrlEncoded
     @POST("login")
-    Call<BaseResponseObjectEntity<LoginEntity>> sendLoginRequest(@Field("email") String email, @Field("password") String password);
+    Call<BaseResponseObjectEntity<LoginEntity>> sendLoginRequest(@Field("email") String email,
+                                                                 @Field("password") String password);
 
 
     @FormUrlEncoded
@@ -41,7 +43,8 @@ public interface APIRequestService {
 
     @FormUrlEncoded
     @POST("get-user-class")
-    Call<BaseResponseArrayEntity<UserClassEntity>> getUserClassList(@Header("Authorization") String auth, @Field("Optional") String optional);
+    Call<BaseResponseArrayEntity<UserClassEntity>> getUserClassList(@Header("Authorization") String auth,
+                                                                    @Field("Optional") String optional);
 
     @FormUrlEncoded
     @POST("get-subject")
@@ -49,7 +52,9 @@ public interface APIRequestService {
 
     @FormUrlEncoded
     @POST("get-videos")
-    Call<BaseResponseArrayEntity<VideoEntity>> getVideoList(@Header("Authorization") String auth, @Field("class_id") String classID, @Field("subject_id") String subjectID);
+    Call<BaseResponseArrayEntity<VideoEntity>> getVideoList(@Header("Authorization") String auth,
+                                                            @Field("class_id") String classID,
+                                                            @Field("subject_id") String subjectID);
 
     @FormUrlEncoded
     @POST("forgot-password")
@@ -57,19 +62,19 @@ public interface APIRequestService {
 
     @FormUrlEncoded
     @POST("get-user-profile")
-    Call<BaseResponseObjectEntity<UserEntity>> getUserProfile(@Header("Authorization") String auth, @Field("Optional") String optional);
+    Call<BaseResponseObjectEntity<UserEntity>> getUserProfile(@Header("Authorization") String auth,
+                                                              @Field("Optional") String optional);
 
     @FormUrlEncoded
     @POST("create-new-payment")
-    Call<BaseResponseObjectEntity<OrderIdEntity>> generateOrderId(@Header("Authorization") String auth, @Field("class_id") String classID, @Field("amount") String amount);
-
-    @Streaming
-    @GET
-    Call<ResponseBody> downloadFileByUrl(@Url String fileUrl);
+    Call<BaseResponseObjectEntity<OrderIdEntity>> generateOrderId(@Header("Authorization") String auth,
+                                                                  @Field("class_id") String classID,
+                                                                  @Field("amount") String amount);
 
     @FormUrlEncoded
     @POST("verify-token")
-    Call<BaseResponseObjectEntity> verifyToken(@Header("Authorization") String auth, @Field("Optional") String optional);
+    Call<BaseResponseObjectEntity> verifyToken(@Header("Authorization") String auth,
+                                               @Field("Optional") String optional);
 
     @FormUrlEncoded
     @POST("update-payment")
@@ -94,6 +99,22 @@ public interface APIRequestService {
                                                      @Field("email") String email,
                                                      @Field("phone_number") String phone_number,
                                                      @Field("class_id") String class_id);
+
+
+    @FormUrlEncoded
+    @POST("get-active-subscription")
+    Call<BaseResponseArrayEntity<SubscriptionEntity>> getActiveSubscription(@Header("Authorization") String auth,
+                                                                            @Field("Optional") String optional);
+
+
+    @FormUrlEncoded
+    @POST("verify-email-otp")
+    Call<BaseResponseObjectEntity> verifyOtp(@Field("email") String email, @Field("otp") String otp);
+
+
+    @Streaming
+    @GET
+    Call<ResponseBody> downloadFileByUrl(@Url String fileUrl);
 }
 
 

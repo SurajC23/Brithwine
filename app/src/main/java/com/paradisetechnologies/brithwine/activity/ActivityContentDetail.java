@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.longtailvideo.jwplayer.JWPlayerView;
 import com.longtailvideo.jwplayer.configuration.PlayerConfig;
@@ -34,11 +35,12 @@ import com.paradisetechnologies.brithwine.jwplayer.KeepScreenOnHandler;
 
 public class ActivityContentDetail extends AppCompatActivity implements VideoPlayerEvents.OnFullscreenListener, VideoPlayerEvents.OnReadyListener, VideoPlayerEvents.OnPlayListener, VideoPlayerEvents.OnPauseListener, VideoPlayerEvents.OnCompleteListener, VideoPlayerEvents.OnTimeListener, VideoPlayerEvents.OnCaptionsChangedListener, VideoPlayerEvents.OnSeekListener, VideoPlayerEvents.OnSeekedListener, VideoPlayerEvents.OnErrorListener {
 
-    private String url, title, img;
+    private String url, title, img, desc;
     private JWPlayerView mPlayerView;
     private JWEventHandler mEventHandler;
     private PlaybackState mPlaybackState;
     private ImageView ivBackArrow;
+    private TextView tvTitle, tvDesc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,9 +52,12 @@ public class ActivityContentDetail extends AppCompatActivity implements VideoPla
         url = getIntent().getStringExtra(AppConstants.STRINGS.VIDEO_URL);
         title = getIntent().getStringExtra(AppConstants.STRINGS.VIDEO_TITLE);
         img = getIntent().getStringExtra(AppConstants.STRINGS.VIDEO_IMG);
+        desc = getIntent().getStringExtra(AppConstants.STRINGS.VIDEO_DESC);
 
         mPlayerView = findViewById(R.id.jwplayer);
         ivBackArrow = findViewById(R.id.ivBackArrow);
+        tvTitle = findViewById(R.id.tvTitle);
+        tvDesc = findViewById(R.id.tvDesc);
 
         mPlayerView.addOnFullscreenListener(this);
         mPlayerView.addOnReadyListener(this);
@@ -76,6 +81,8 @@ public class ActivityContentDetail extends AppCompatActivity implements VideoPla
         mEventHandler = new JWEventHandler(mPlayerView);
 
         loadPlayer(url, title);
+        tvTitle.setText(title);
+        tvDesc.setText(desc);
 
         ivBackArrow.setOnClickListener(new View.OnClickListener()
         {

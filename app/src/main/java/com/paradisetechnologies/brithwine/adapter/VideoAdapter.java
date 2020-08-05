@@ -80,31 +80,43 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
             @Override
             public void onClick(View view)
             {
-                if (videoEntity.getVideo_type().equals("2") && !isSubscribe)
-                {
-                    StatMethods.showSubscriptionBoxDialog(activity, selectedClassId, selectedClassFee, selectedClassName);
-                }
-                else
+
+                if (videoEntity.getVideo_type().equals("1"))
                 {
                     if (!videoEntity.getQuiz_file_path().equals(""))
                     {
-                        StatMethods.showQuizBoxDialog(activity, videoEntity.getQuiz_file_path(), videoEntity.getVideoID(), videoEntity.getVideo_path(), videoEntity.getTitle(), videoEntity.getThumbnail_path());
+                        StatMethods.showQuizBoxDialog(activity, videoEntity.getQuiz_file_path(), videoEntity.getVideoID(), videoEntity.getVideo_path(), videoEntity.getTitle(), videoEntity.getThumbnail_path(), videoEntity.getDescription());
                     }
                     else
                     {
                         playVideoClick = (PlayVideoClick) activity;
-                        playVideoClick.playVideoClicked(videoEntity.getVideo_path(), videoEntity.getVideoID(), videoEntity.getTitle(), videoEntity.getThumbnail_path());
+                        playVideoClick.playVideoClicked(videoEntity.getVideo_path(), videoEntity.getVideoID(), videoEntity.getTitle(), videoEntity.getThumbnail_path(), videoEntity.getDescription());
                     }
                 }
-
-                if (videoEntity.getVideo_type().equals("1") && !videoEntity.getQuiz_file_path().equals(""))
+                else if (videoEntity.getVideo_type().equals("2"))
                 {
-                    StatMethods.showQuizBoxDialog(activity, videoEntity.getQuiz_file_path(), videoEntity.getVideoID(), videoEntity.getVideo_path(), videoEntity.getTitle(), videoEntity.getThumbnail_path());
-                }
-                else
-                {
-                    playVideoClick = (PlayVideoClick) activity;
-                    playVideoClick.playVideoClicked(videoEntity.getVideo_path(), videoEntity.getVideoID(), videoEntity.getTitle(), videoEntity.getThumbnail_path());
+                    if (!videoEntity.getQuiz_file_path().equals(""))
+                    {
+                        if (!isSubscribe)
+                        {
+                            StatMethods.showSubscriptionBoxDialog(activity, selectedClassId, selectedClassFee, selectedClassName);
+                        }
+                        else
+                        {
+                            StatMethods.showQuizBoxDialog(activity, videoEntity.getQuiz_file_path(), videoEntity.getVideoID(), videoEntity.getVideo_path(), videoEntity.getTitle(), videoEntity.getThumbnail_path(), videoEntity.getDescription());
+                        }
+                    }
+                    else
+                    {
+                        if (!isSubscribe)
+                        {
+                            StatMethods.showSubscriptionBoxDialog(activity, selectedClassId, selectedClassFee, selectedClassName);
+                        }
+                        else
+                        {
+                            playVideoClick = (PlayVideoClick) activity;
+                            playVideoClick.playVideoClicked(videoEntity.getVideo_path(), videoEntity.getVideoID(), videoEntity.getTitle(), videoEntity.getThumbnail_path(), videoEntity.getDescription());                        }
+                    }
                 }
             }
         });

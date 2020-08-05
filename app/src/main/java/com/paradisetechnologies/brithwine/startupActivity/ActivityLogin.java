@@ -1,11 +1,14 @@
 package com.paradisetechnologies.brithwine.startupActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,6 +25,9 @@ import com.paradisetechnologies.brithwine.network.RetrofitClient;
 import com.paradisetechnologies.brithwine.utils.StatMethods;
 import com.paradisetechnologies.brithwine.utils.UtilitySharedPreferences;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,6 +39,8 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
     private ImageView ivCancel;
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private RelativeLayout rlVerify;
+    private String token, name, emailID, classId;
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,10 +154,9 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
         sendLoginRequest(email, password);
     }
 
-
     private void sendLoginRequest(String email, String password)
     {
-        StatMethods.loadingView(this, true);
+        StatMethods.showDialog(this);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity<LoginEntity>> call = apiRequestService.sendLoginRequest(email, password);
         call.enqueue(new Callback<BaseResponseObjectEntity<LoginEntity>>() {
@@ -164,28 +171,35 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
                         String status = entity.getStatus();
                         if (status.equals(AppConstants.SUCCESS))
                         {
-                            LoginEntity loginEntity = (LoginEntity) entity.getData();
-                            if (loginEntity != null)
-                            {
-                                int userId = loginEntity.getId();
-                                String token = "Bearer " + loginEntity.getApi_token();
-                                String name = loginEntity.getName();
-                                String email = loginEntity.getEmail();
-                                String classId = loginEntity.getClass_id();
+                            int msg_code = entity.getMsg_code();
 
+                            LoginEntity loginEntity = (LoginEntity) entity.getData();
+                            userId = loginEntity.getId();
+                            token = "Bearer " + loginEntity.getApi_token();
+                            name = loginEntity.getName();
+                            emailID = loginEntity.getEmail();
+                            classId = loginEntity.getClass_id();
+
+                            if (msg_code == 4)
+                            {
+                                StatMethods.dismissDialog();
+                                startNextActivity(userId, token, name, emailID, classId);
+                            }
+                            else
+                            {
                                 UtilitySharedPreferences.setPrefs(ActivityLogin.this, AppConstants.SHAREDPREFERENCES.USER_ID, ""+userId);
                                 UtilitySharedPreferences.setPrefs(ActivityLogin.this, AppConstants.SHAREDPREFERENCES.USER_AUTH_TOKEN, token);
                                 UtilitySharedPreferences.setPrefs(ActivityLogin.this, AppConstants.SHAREDPREFERENCES.USER_NAME, name);
                                 UtilitySharedPreferences.setPrefs(ActivityLogin.this, AppConstants.SHAREDPREFERENCES.USER_EMAIL, email);
                                 UtilitySharedPreferences.setPrefs(ActivityLogin.this, AppConstants.SHAREDPREFERENCES.USER_CLASSID, classId);
 
-                                StatMethods.loadingView(ActivityLogin.this, false);
+                                StatMethods.dismissDialog();
                                 StatMethods.startNewActivity(ActivityLogin.this, ActivityHome.class);
                             }
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
-                            StatMethods.loadingView(ActivityLogin.this, false);
+                            StatMethods.dismissDialog();
                             int msgCode = entity.getMsg_code();
                             StatMethods.showMsgCode(ActivityLogin.this, msgCode);
                         }
@@ -198,5 +212,17 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
             {
             }
         });
+    }
+
+    private void startNextActivity(int userId, String token, String name, String email, String classId)
+    {
+        Intent intent = new Intent(ActivityLogin.this, ActivityEmailOtpConfirmaion.class);
+        intent.putExtra(AppConstants.SHAREDPREFERENCES.USER_ID, String.valueOf(userId));
+        intent.putExtra(AppConstants.SHAREDPREFERENCES.USER_AUTH_TOKEN, token);
+        intent.putExtra(AppConstants.SHAREDPREFERENCES.USER_NAME, name);
+        intent.putExtra(AppConstants.SHAREDPREFERENCES.USER_EMAIL, email);
+        intent.putExtra(AppConstants.SHAREDPREFERENCES.USER_CLASSID, classId);
+        startActivity(intent);
+        finish();
     }
 }

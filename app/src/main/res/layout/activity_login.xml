@@ -125,9 +125,9 @@
                 android:paddingBottom="@dimen/dp15"
                 android:text="@string/login"
                 android:textAllCaps="true"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="13sp"
-                app:fontface="qbold"/>
+                app:fontface="mbold"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"

@@ -21,7 +21,6 @@ import com.paradisetechnologies.brithwine.utils.UtilitySharedPreferences;
 
 public class ActivitySplashScreen extends AppCompatActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

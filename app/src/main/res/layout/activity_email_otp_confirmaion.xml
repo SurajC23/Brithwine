@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".startupActivity.ActivityEmailOtpConfirmaion"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="@color/transparent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivBackArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/ripple_5dp"
+                android:padding="@dimen/dp2"
+                android:src="@drawable/ic_back_arrow"/>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/root_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp10"
+                    android:gravity="center"
+                    android:text="@string/awesome"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp22" />
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/msg_otp1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp14" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp30"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                        android:id="@+id/et_one"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_margin="@dimen/dp7"
+                        android:background="@drawable/square_border"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp15" />
+
+                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                        android:id="@+id/et_two"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_margin="@dimen/dp7"
+                        android:background="@drawable/square_border"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp15"/>
+
+                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                        android:id="@+id/et_three"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_margin="@dimen/dp7"
+                        android:background="@drawable/square_border"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp15" />
+
+                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                        android:id="@+id/et_four"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_margin="@dimen/dp7"
+                        android:background="@drawable/square_border"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp15" />
+
+                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                        android:id="@+id/et_five"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_margin="@dimen/dp7"
+                        android:background="@drawable/square_border"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp15" />
+
+                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                        android:id="@+id/et_six"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_margin="@dimen/dp7"
+                        android:background="@drawable/square_border"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp15" />
+
+                </LinearLayout>
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:id="@+id/tvProceed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/dp15"
+                    android:paddingBottom="@dimen/dp15"
+                    android:layout_marginLeft="@dimen/dp30"
+                    android:layout_marginTop="@dimen/dp35"
+                    android:layout_marginRight="@dimen/dp30"
+                    android:text="@string/proceed"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:fontface="mbold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

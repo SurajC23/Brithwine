@@ -1,5 +1,6 @@
 package com.paradisetechnologies.brithwine.activity;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -22,7 +23,6 @@ import com.paradisetechnologies.brithwine.entity.UserEntity;
 import com.paradisetechnologies.brithwine.network.APIRequestService;
 import com.paradisetechnologies.brithwine.network.RetrofitClient;
 import com.paradisetechnologies.brithwine.startupActivity.ActivityLogin;
-import com.paradisetechnologies.brithwine.startupActivity.ActivitySignup;
 import com.paradisetechnologies.brithwine.utils.StatMethods;
 import com.paradisetechnologies.brithwine.utils.UtilitySharedPreferences;
 
@@ -34,9 +34,10 @@ import retrofit2.Response;
 
 public class ActivityProfile extends AppCompatActivity implements View.OnClickListener
 {
+
     private EditText name, email, mobile;
     private Spinner spClass;
-    private Button btnUpdateprofile, logout;
+    private Button btnUpdateprofile, logout, subscriptions;
     private String selectedClassId;
     private int userClassID;
     private ImageView ivBackArrow;
@@ -65,10 +66,12 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
         spClass = findViewById(R.id.spClass);
         btnUpdateprofile = findViewById(R.id.updateprofile);
         logout = findViewById(R.id.logout);
+        subscriptions = findViewById(R.id.subscriptions);
         ivBackArrow = findViewById(R.id.ivBackArrow);
 
         btnUpdateprofile.setOnClickListener(this);
         logout.setOnClickListener(this);
+        subscriptions.setOnClickListener(this);
         ivBackArrow.setOnClickListener(this);
 
         spClass.setEnabled(false);
@@ -202,6 +205,10 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
             case R.id.logout:
                 logoutUser();
                 break;
+
+            case R.id.subscriptions:
+                startNewActivity();
+                break;
         }
     }
 
@@ -271,7 +278,12 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
 
     private void logoutUser()
     {
-        UtilitySharedPreferences.clearPref(ActivityProfile.this);
-        StatMethods.startNewActivity(ActivityProfile.this, ActivityLogin.class);
+        StatMethods.showLogoutDialog(ActivityProfile.this);
+    }
+
+    private void startNewActivity()
+    {
+        Intent intent = new Intent(ActivityProfile.this, ActivityUserSubscription.class);
+        startActivity(intent);
     }
 }

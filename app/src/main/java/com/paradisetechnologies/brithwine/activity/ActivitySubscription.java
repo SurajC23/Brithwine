@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.paradisetechnologies.brithwine.entity.OrderIdEntity;
 import com.paradisetechnologies.brithwine.entity.SubjectEntity;
 import com.paradisetechnologies.brithwine.network.APIRequestService;
 import com.paradisetechnologies.brithwine.network.RetrofitClient;
+import com.paradisetechnologies.brithwine.startupActivity.ActivityForgotPassword;
 import com.paradisetechnologies.brithwine.startupActivity.ActivityLogin;
 import com.paradisetechnologies.brithwine.utils.StatMethods;
 import com.paradisetechnologies.brithwine.utils.UtilitySharedPreferences;
@@ -52,7 +54,7 @@ public class ActivitySubscription extends AppCompatActivity implements PaymentRe
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subscription);
+        setContentView(R.layout.activity_subscription_new);
 
         classID = getIntent().getStringExtra(AppConstants.STRINGS.CLASS_ID);
         classFEE = getIntent().getStringExtra(AppConstants.STRINGS.CLASS_FEE);
@@ -75,11 +77,12 @@ public class ActivitySubscription extends AppCompatActivity implements PaymentRe
         ivBackArrow.setOnClickListener(this);
         tvPay.setOnClickListener(this);
         tvClassName.setText(className);
-        tvClassFee.setText("RS. " + classFEE + "/-");
+        tvClassFee.setText(classFEE);
     }
 
     private void getSubjectName(String classID)
     {
+        StatMethods.showDialog(this);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseArrayEntity<SubjectEntity>> call = apiRequestService.getSubjectList(classID);
         call.enqueue(new Callback<BaseResponseArrayEntity<SubjectEntity>>() {
@@ -101,9 +104,11 @@ public class ActivitySubscription extends AppCompatActivity implements PaymentRe
                                 rvSubjectNames.setAdapter(subjectAdapter);
                                 subjectAdapter.notifyDataSetChanged();
                             }
+                            StatMethods.dismissDialog();
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
+                            StatMethods.dismissDialog();
                             int msgCode = entity.getMsg_code();
                             StatMethods.showMsgCode(ActivitySubscription.this, msgCode);
                         }
@@ -121,6 +126,7 @@ public class ActivitySubscription extends AppCompatActivity implements PaymentRe
 
     private void generateOrderId()
     {
+        StatMethods.showDialog(this);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity<OrderIdEntity>> call = apiRequestService.generateOrderId(StatMethods.isToken(this), classID, classFEE);
         call.enqueue(new Callback<BaseResponseObjectEntity<OrderIdEntity>>() {
@@ -145,9 +151,11 @@ public class ActivitySubscription extends AppCompatActivity implements PaymentRe
                                 mobileNumber = orderIdEntity.getMobile_number();
                                 startPayment(orderId, amount, name, email, mobileNumber);
                             }
+                            StatMethods.dismissDialog();
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
+                            StatMethods.dismissDialog();
                             int msgCode = entity.getMsg_code();
                             StatMethods.showMsgCode(ActivitySubscription.this, msgCode);
                         }
@@ -210,6 +218,7 @@ public class ActivitySubscription extends AppCompatActivity implements PaymentRe
                             if (status.equals(AppConstants.SUCCESS))
                             {
                                 StatMethods.showToastShort(ActivitySubscription.this, getString(R.string.payment_successfull));
+                                startNewActivity();
                             }
                         }
                     }
@@ -224,6 +233,13 @@ public class ActivitySubscription extends AppCompatActivity implements PaymentRe
         catch (Exception e)
         {
         }
+    }
+
+    private void startNewActivity()
+    {
+        Intent intent = new Intent(ActivitySubscription.this, ActivityUserSubscription.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

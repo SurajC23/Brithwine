@@ -74,6 +74,7 @@ public class ActivityForgotPassword_LinkSent extends AppCompatActivity implement
 
     private void resendMail()
     {
+        StatMethods.showDialog(this);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity> call = apiRequestService.getForgotPassword(email);
         call.enqueue(new Callback<BaseResponseObjectEntity>() {
@@ -89,6 +90,7 @@ public class ActivityForgotPassword_LinkSent extends AppCompatActivity implement
                         String status = entity.getStatus();
                         if (status.equals(AppConstants.SUCCESS))
                         {
+                            StatMethods.dismissDialog();
                             StatMethods.showToastShort(ActivityForgotPassword_LinkSent.this, getString(R.string.verification_mail));
                         }
                     }

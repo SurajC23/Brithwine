@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/square_border"
+    android:elevation="@dimen/dp2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10"
+        android:orientation="vertical">
+
+        <com.paradisetechnologies.brithwine.fonts.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/your_plan"
+            app:fontface="mregular"
+            android:textSize="@dimen/sp13"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp5">
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:id="@+id/tvClassName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fontface="mregular"
+                android:textSize="@dimen/sp17"
+                android:textColor="@color/black"/>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp5"
+                android:text="for"
+                android:layout_gravity="center_vertical"
+                app:fontface="mregular"
+                android:textSize="@dimen/sp15"
+                android:textColor="@color/edittext_grey"/>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Rs"
+                android:layout_marginLeft="@dimen/dp5"
+                app:fontface="mregular"
+                android:textSize="@dimen/sp17"
+                android:textColor="@color/black"/>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:id="@+id/tvClassFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_gravity="center_vertical"
+                app:fontface="mregular"
+                android:textSize="@dimen/sp17"
+                android:textColor="@color/black"/>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/ year"
+                android:layout_gravity="center_vertical"
+                app:fontface="mregular"
+                android:textSize="@dimen/sp15"
+                android:layout_marginLeft="@dimen/dp2"
+                android:textColor="@color/edittext_grey"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp25">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_date"
+                    app:fontface="mregular"
+                    android:textSize="@dimen/sp13"
+                    android:layout_gravity="center_horizontal"/>
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:id="@+id/tvStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontface="mregular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp17"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/end_date"
+                    app:fontface="mregular"
+                    android:textSize="@dimen/sp13"
+                    android:layout_gravity="center_horizontal"/>
+
+                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                    android:id="@+id/tvEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontface="mregular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp17"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

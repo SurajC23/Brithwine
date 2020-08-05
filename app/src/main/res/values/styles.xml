@@ -9,7 +9,7 @@
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:statusBarColor" tools:targetApi = "lollipop">@color/edittext_grey</item>
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/edittext_grey</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/white</item>
     </style>
 
     <style name="TextLabelNew" parent="Theme.AppCompat">
@@ -58,8 +58,8 @@
         <item name="android:paddingBottom">@dimen/dp12</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">@dimen/dp200</item>
-        <item name="android:background">@drawable/proceed_selector</item>
-        <item name="android:foreground">@drawable/custome_ripple</item>
+        <item name="android:background">@drawable/rounded_gredient_button_bg</item>
+        <item name="android:foreground">@drawable/custome_rounded_ripple</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>

@@ -183,6 +183,10 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
                     ii.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(ii);
                 }
+                else if (tvSubscribed.getText().equals(getString(R.string.subscribe_home)))
+                {
+                    StatMethods.showToastShort(ActivityHome.this, getString(R.string.already_subscribed));
+                }
             }
         });
     }
@@ -345,12 +349,13 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
     }
 
     @Override
-    public void playVideoClicked(String url, int videoID, String title, String thumbnail_path)
+    public void playVideoClicked(String url, int videoID, String title, String thumbnail_path, String desc)
     {
         Intent ii = new Intent(ActivityHome.this, ActivityContentDetail.class);
         ii.putExtra(AppConstants.STRINGS.VIDEO_URL, url);
         ii.putExtra(AppConstants.STRINGS.VIDEO_TITLE, title);
         ii.putExtra(AppConstants.STRINGS.VIDEO_IMG, thumbnail_path);
+        ii.putExtra(AppConstants.STRINGS.VIDEO_DESC, desc);
         ii.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(ii);
     }

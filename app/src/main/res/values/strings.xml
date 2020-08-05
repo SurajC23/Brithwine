@@ -35,6 +35,7 @@
     <string name="user_not_exist">User doesn\'t exist</string>
 
     <string name="videolist_error">Looks like they haven’t added \n anything to this list yet!</string>
+    <string name="subscription_error">Looks like you haven’t subscribed \nany class yet!</string>
     <string name="videolist_explore">Explore another classes to discover more \nsubjective videos, and grow your self.</string>
 
     <string name="quiz_text">Their is quiz for this video \nis avalible for download</string>
@@ -53,6 +54,23 @@
     <string name="update_profile_successfull">Profile successfully updated</string>
     <string name="edit">Edit</string>
     <string name="logout">Logout</string>
+    <string name="please_wait">Please wait</string>
+    <string name="confirm_logout">Confirm Logout ?</string>
+    <string name="message_exit">Are you sure you want to exit ?</string>    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="subscriptions">Subscriptions</string>
+
+    <string name="msg_otp1">We have sent a comfirmation code \nYou should get it soon</string>
+    <string name="awesome">Awesome,Thanks!</string>
+    <string name="proceed">Proceed</string>
+    <string name="error_enter_otp">Please enter OTP</string>
+    <string name="invalid_otp">Invalid OTP</string>
+    <string name="already_subscribed">You already subscribed this class</string>
+    <string name="your_plan">Your plan</string>
+
+    <string name="Rs">\u20B9</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
 
 
 </resources>

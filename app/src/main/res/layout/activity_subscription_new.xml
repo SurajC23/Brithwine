@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/bg_subscribe">
+
+        <ImageView
+            android:id="@+id/ivBackArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_margin="@dimen/dp20"
+            android:background="@drawable/ripple_5dp"
+            android:padding="@dimen/dp2"
+            android:src="@drawable/ic_back_arrow"/>
+
+        <com.paradisetechnologies.brithwine.fonts.MyTextView
+            android:id="@+id/tvClassName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp40"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp21"
+            android:text="Class 7th"
+            app:fontface="mbold"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:src="@drawable/ic_rupee"
+                android:scaleType="fitXY"
+                android:layout_marginTop="@dimen/dp10"/>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:id="@+id/tvClassFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp45"
+                app:fontface="mbold"/>
+
+            <com.paradisetechnologies.brithwine.fonts.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="per year"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp15"
+                app:fontface="mregular"/>
+
+        </LinearLayout>
+
+        <com.paradisetechnologies.brithwine.fonts.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dp40"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp15"
+            android:gravity="center"
+            android:text="You will get this following subjects \nin this class"
+            app:fontface="mregular"/>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSubjectNames"
+        android:layout_below="@id/rl_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10"
+        android:layout_centerHorizontal="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <com.paradisetechnologies.brithwine.fonts.MyTextView
+        android:id="@+id/tvPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_light_bg"
+        android:gravity="center"
+        android:paddingTop="@dimen/dp15"
+        android:paddingBottom="@dimen/dp15"
+        android:text="@string/pay"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:fontface="mbold"/>
+
+</RelativeLayout>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -83,6 +84,7 @@ public class ActivityForgotPassword extends AppCompatActivity implements View.On
 
     private void sendPassword(final String email)
     {
+        StatMethods.showDialog(this);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity> call = apiRequestService.getForgotPassword(email);
         call.enqueue(new Callback<BaseResponseObjectEntity>() {
@@ -98,10 +100,13 @@ public class ActivityForgotPassword extends AppCompatActivity implements View.On
                         String status = entity.getStatus();
                         if (status.equals(AppConstants.SUCCESS))
                         {
+                            StatMethods.dismissDialog();
                             startNewActivity(email);
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
+                            Log.e("TAG", "onResponse: ERRPR FROGOT ");
+                            StatMethods.dismissDialog();
                             StatMethods.showToastShort(ActivityForgotPassword.this, getString(R.string.user_not_exist));
                         }
                     }

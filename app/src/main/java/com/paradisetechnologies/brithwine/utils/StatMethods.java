@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.paradisetechnologies.brithwine.R;
+import com.paradisetechnologies.brithwine.activity.ActivityProfile;
 import com.paradisetechnologies.brithwine.constants.AppConstants;
 import com.paradisetechnologies.brithwine.interfcae.DownloadClick;
 import com.paradisetechnologies.brithwine.interfcae.PlayVideoClick;
@@ -25,10 +27,27 @@ import com.paradisetechnologies.brithwine.startupActivity.ActivityLogin;
 
 public class StatMethods
 {
+    private static CustomDialog customDialog;
     private static Dialog dialog;
     private static DownloadClick downloadClick;
     private static PlayVideoClick playVideoClick;
     private static SubscribedNowClicked subscribedNowClicked;
+
+    public static void initializeViews(Activity activity) {
+        customDialog = new CustomDialog(activity);
+        customDialog.setCancelable(false);
+    }
+
+    public static void showDialog(Activity activity) {
+        initializeViews(activity);
+        if (customDialog != null)
+            customDialog.show();
+    }
+
+    public static void dismissDialog() {
+        if (customDialog != null)
+            customDialog.cancel();
+    }
 
     public static void showToastLong(Context context, String message)
     {
@@ -107,7 +126,8 @@ public class StatMethods
     }
 
     public static void showQuizBoxDialog(final Activity activity, final String quiz_file_path, final int videoID,
-                                         final String video_path, final String title, final String thumbnail_path)
+                                         final String video_path, final String title, final String thumbnail_path,
+                                         final String desc)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.myDialog);
         LayoutInflater inflater = activity.getLayoutInflater();
@@ -135,7 +155,7 @@ public class StatMethods
             public void onClick(View view)
             {
                 playVideoClick = (PlayVideoClick) activity;
-                playVideoClick.playVideoClicked(video_path, videoID, title, thumbnail_path);
+                playVideoClick.playVideoClicked(video_path, videoID, title, thumbnail_path, desc);
                 lockedContentDialog.dismiss();
             }
         });
@@ -230,5 +250,30 @@ public class StatMethods
         lockedContentDialog.setCancelable(true);
         lockedContentDialog.show();
         lockedContentDialog.getWindow().setLayout(getWidth(activity, 1.5), WindowManager.LayoutParams.WRAP_CONTENT);
+    }
+
+    public static void showLogoutDialog(Activity activity)
+    {
+        new AlertDialog.Builder(activity)
+                .setMessage(R.string.confirm_logout)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        UtilitySharedPreferences.clearPref(activity);
+                        StatMethods.startNewActivity(activity, ActivityLogin.class);
+                    }
+                })
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .create()
+                .show();
     }
 }

@@ -90,7 +90,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
                     else
                     {
                         playVideoClick = (PlayVideoClick) activity;
-                        playVideoClick.playVideoClicked(videoEntity.getVideo_path(), videoEntity.getVideoID(), videoEntity.getTitle(), videoEntity.getThumbnail_path(), videoEntity.getDescription());
+                        playVideoClick.playVideoClicked(videoEntity.getVideo_path(), videoEntity.getVideoID(), videoEntity.getTitle(), videoEntity.getThumbnail_path(), videoEntity.getDescription(), videoEntity.getVideoID());
                     }
                 }
                 else if (videoEntity.getVideo_type().equals("2"))
@@ -115,7 +115,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
                         else
                         {
                             playVideoClick = (PlayVideoClick) activity;
-                            playVideoClick.playVideoClicked(videoEntity.getVideo_path(), videoEntity.getVideoID(), videoEntity.getTitle(), videoEntity.getThumbnail_path(), videoEntity.getDescription());                        }
+                            playVideoClick.playVideoClicked(videoEntity.getVideo_path(), videoEntity.getVideoID(), videoEntity.getTitle(), videoEntity.getThumbnail_path(), videoEntity.getDescription(), videoEntity.getVideoID());                        }
                     }
                 }
             }

@@ -17,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.paradisetechnologies.brithwine.R;
-import com.paradisetechnologies.brithwine.activity.ActivityProfile;
 import com.paradisetechnologies.brithwine.constants.AppConstants;
 import com.paradisetechnologies.brithwine.interfcae.DownloadClick;
 import com.paradisetechnologies.brithwine.interfcae.PlayVideoClick;
@@ -155,7 +154,7 @@ public class StatMethods
             public void onClick(View view)
             {
                 playVideoClick = (PlayVideoClick) activity;
-                playVideoClick.playVideoClicked(video_path, videoID, title, thumbnail_path, desc);
+                playVideoClick.playVideoClicked(video_path, videoID, title, thumbnail_path, desc, videoID);
                 lockedContentDialog.dismiss();
             }
         });

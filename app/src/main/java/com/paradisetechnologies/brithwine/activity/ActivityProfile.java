@@ -1,11 +1,9 @@
 package com.paradisetechnologies.brithwine.activity;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,10 +20,7 @@ import com.paradisetechnologies.brithwine.entity.ClassEntity;
 import com.paradisetechnologies.brithwine.entity.UserEntity;
 import com.paradisetechnologies.brithwine.network.APIRequestService;
 import com.paradisetechnologies.brithwine.network.RetrofitClient;
-import com.paradisetechnologies.brithwine.startupActivity.ActivityLogin;
 import com.paradisetechnologies.brithwine.utils.StatMethods;
-import com.paradisetechnologies.brithwine.utils.UtilitySharedPreferences;
-
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -34,7 +29,6 @@ import retrofit2.Response;
 
 public class ActivityProfile extends AppCompatActivity implements View.OnClickListener
 {
-
     private EditText name, email, mobile;
     private Spinner spClass;
     private Button btnUpdateprofile, logout, subscriptions;
@@ -54,7 +48,6 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
 
         bindViews();
         getUserProfile();
-        getClassList();
 
     }
 
@@ -75,25 +68,11 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
         ivBackArrow.setOnClickListener(this);
 
         spClass.setEnabled(false);
-
-        spClass.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l)
-            {
-                classEntity = classEntityArrayList.get(position);
-                selectedClassId = String.valueOf(classEntity.getId());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView)
-            {
-
-            }
-        });
     }
 
     private void getUserProfile()
     {
+        StatMethods.showDialog(ActivityProfile.this);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity<UserEntity>> call = apiRequestService.getUserProfile(StatMethods.isToken(this), "");
         call.enqueue(new Callback<BaseResponseObjectEntity<UserEntity>>()
@@ -115,7 +94,7 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
                             mobile.setText(userEntity.getMobile_number());
                             userClassID = Integer.parseInt(userEntity.getClass_id());
 
-                            Log.e("TAG", "onResponse: CLASS ID USER : " + userClassID);
+                            getClassList(userClassID);
                         }
                     }
                 }
@@ -129,7 +108,7 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
         });
     }
 
-    private void getClassList()
+    private void getClassList(int userClassID)
     {
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseArrayEntity<ClassEntity>> call = apiRequestService.getClassList("");
@@ -161,10 +140,27 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
                                         break;
                                     }
                                 }
+
+                                spClass.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l)
+                                    {
+                                        classEntity = classEntityArrayList.get(position);
+                                        selectedClassId = String.valueOf(classEntity.getId());
+                                    }
+
+                                    @Override
+                                    public void onNothingSelected(AdapterView<?> adapterView)
+                                    {
+
+                                    }
+                                });
                             }
+                            StatMethods.dismissDialog();
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
+                            StatMethods.dismissDialog();
                             int msgCode = entity.getMsg_code();
                             StatMethods.showMsgCode(ActivityProfile.this, msgCode);
                         }
@@ -188,7 +184,6 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
             case R.id.updateprofile:
                 if (btnUpdateprofile.getText().toString().trim().equalsIgnoreCase("edit")) {
                     name.setEnabled(true);
-                    email.setEnabled(true);
                     mobile.setEnabled(true);
                     spClass.setEnabled(true);
                     btnUpdateprofile.setText(getString(R.string.save));
@@ -243,6 +238,7 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
 
     private void updateUser(String userName, String userEmail, String mobileNo, String selectedClassId)
     {
+        StatMethods.showDialog(ActivityProfile.this);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseObjectEntity> call = apiRequestService.updateUserProfile(StatMethods.isToken(this), userName,
                 userEmail, mobileNo, selectedClassId);
@@ -262,7 +258,14 @@ public class ActivityProfile extends AppCompatActivity implements View.OnClickLi
                             mobile.setEnabled(false);
                             spClass.setEnabled(false);
                             btnUpdateprofile.setText(getString(R.string.edit));
+                            StatMethods.dismissDialog();
                             StatMethods.showToastShort(ActivityProfile.this, getString(R.string.update_profile_successfull));
+                        }
+                        else if (status.equals(AppConstants.ERROR))
+                        {
+                            StatMethods.dismissDialog();
+                            int msgCode = entity.getMsg_code();
+                            StatMethods.showMsgCode(ActivityProfile.this, msgCode);
                         }
                     }
                 }

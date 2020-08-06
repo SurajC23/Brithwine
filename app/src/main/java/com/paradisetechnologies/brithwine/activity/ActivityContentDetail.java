@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.media.session.PlaybackState;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -30,12 +31,20 @@ import com.longtailvideo.jwplayer.events.listeners.VideoPlayerEvents;
 import com.longtailvideo.jwplayer.media.playlists.PlaylistItem;
 import com.paradisetechnologies.brithwine.R;
 import com.paradisetechnologies.brithwine.constants.AppConstants;
+import com.paradisetechnologies.brithwine.entity.BaseResponseObjectEntity;
 import com.paradisetechnologies.brithwine.jwplayer.JWEventHandler;
 import com.paradisetechnologies.brithwine.jwplayer.KeepScreenOnHandler;
+import com.paradisetechnologies.brithwine.network.APIRequestService;
+import com.paradisetechnologies.brithwine.network.RetrofitClient;
+import com.paradisetechnologies.brithwine.utils.StatMethods;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ActivityContentDetail extends AppCompatActivity implements VideoPlayerEvents.OnFullscreenListener, VideoPlayerEvents.OnReadyListener, VideoPlayerEvents.OnPlayListener, VideoPlayerEvents.OnPauseListener, VideoPlayerEvents.OnCompleteListener, VideoPlayerEvents.OnTimeListener, VideoPlayerEvents.OnCaptionsChangedListener, VideoPlayerEvents.OnSeekListener, VideoPlayerEvents.OnSeekedListener, VideoPlayerEvents.OnErrorListener {
 
-    private String url, title, img, desc;
+    private String videoID, url, title, img, desc;
     private JWPlayerView mPlayerView;
     private JWEventHandler mEventHandler;
     private PlaybackState mPlaybackState;
@@ -49,6 +58,7 @@ public class ActivityContentDetail extends AppCompatActivity implements VideoPla
         setContentView(R.layout.activity_content_detail);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        videoID = getIntent().getStringExtra(AppConstants.STRINGS.VIDEO_ID);
         url = getIntent().getStringExtra(AppConstants.STRINGS.VIDEO_URL);
         title = getIntent().getStringExtra(AppConstants.STRINGS.VIDEO_TITLE);
         img = getIntent().getStringExtra(AppConstants.STRINGS.VIDEO_IMG);
@@ -157,7 +167,22 @@ public class ActivityContentDetail extends AppCompatActivity implements VideoPla
     @Override
     public void onPlay(PlayEvent playEvent)
     {
+        Log.e("TAG", "onPlay : Video Playing " );
+        final APIRequestService apiRequestService = RetrofitClient.getApiService();
+        Call<BaseResponseObjectEntity> call = apiRequestService.sendVideoView(StatMethods.isToken(this), videoID);
+        call.enqueue(new Callback<BaseResponseObjectEntity>() {
+            @Override
+            public void onResponse(Call<BaseResponseObjectEntity> call, Response<BaseResponseObjectEntity> response)
+            {
 
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponseObjectEntity> call, Throwable t)
+            {
+
+            }
+        });
     }
 
     @Override

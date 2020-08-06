@@ -48,7 +48,8 @@
     <string name="subscribe_home">Subscribed</string>
     <string name="unsubscribe_home">Unsubscribed</string>
     <string name="video_details">Video Details</string>
-    <string name="payment_successfull">Payment successfull</string>
+    <string name="payment_successfull">Payment successful</string>
+    <string name="payment_cancel">Payment cancelled</string>
     <string name="profile">Profile</string>
     <string name="save">Save</string>
     <string name="update_profile_successfull">Profile successfully updated</string>
@@ -56,9 +57,10 @@
     <string name="logout">Logout</string>
     <string name="please_wait">Please wait</string>
     <string name="confirm_logout">Confirm Logout ?</string>
-    <string name="message_exit">Are you sure you want to exit ?</string>    <string name="yes">Yes</string>
+    <string name="message_exit">Are you sure you want to exit ?</string>
+    <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="subscriptions">Subscriptions</string>
+    <string name="subscriptions">Subscription</string>
 
     <string name="msg_otp1">We have sent a comfirmation code \nYou should get it soon</string>
     <string name="awesome">Awesome,Thanks!</string>

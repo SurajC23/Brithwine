@@ -112,6 +112,12 @@ public interface APIRequestService {
     Call<BaseResponseObjectEntity> verifyOtp(@Field("email") String email, @Field("otp") String otp);
 
 
+    @FormUrlEncoded
+    @POST("videos-view")
+    Call<BaseResponseObjectEntity> sendVideoView(@Header("Authorization") String auth,
+                                                 @Field("video_id") String videoID);
+
+
     @Streaming
     @GET
     Call<ResponseBody> downloadFileByUrl(@Url String fileUrl);

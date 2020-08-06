@@ -9,7 +9,6 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -204,6 +203,7 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
 
     private void getClassList()
     {
+        StatMethods.showDialog(ActivityHome.this);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseArrayEntity<UserClassEntity>> call = apiRequestService.getUserClassList(StatMethods.isToken(this), "");
         call.enqueue(new Callback<BaseResponseArrayEntity<UserClassEntity>>() {
@@ -226,9 +226,11 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
                                 classAdapter.setDropDownViewResource(R.layout.spinner_item_white);
                                 spClass.setAdapter(classAdapter);
                             }
+                            StatMethods.dismissDialog();
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
+                            StatMethods.dismissDialog();
                             int msgCode = entity.getMsg_code();
                             StatMethods.showMsgCode(ActivityHome.this, msgCode);
                         }
@@ -246,6 +248,7 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
 
     private void getSubjectList(String selectedClassId)
     {
+        StatMethods.showDialog(ActivityHome.this);
         final APIRequestService apiRequestService = RetrofitClient.getApiService();
         Call<BaseResponseArrayEntity<SubjectEntity>> call = apiRequestService.getSubjectList(selectedClassId);
         call.enqueue(new Callback<BaseResponseArrayEntity<SubjectEntity>>() {
@@ -267,9 +270,11 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
                                 subjectAdapter.setDropDownViewResource(R.layout.spinner_item_white);
                                 spSubject.setAdapter(subjectAdapter);
                             }
+                            StatMethods.dismissDialog();
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
+                            StatMethods.dismissDialog();
                             int msgCode = entity.getMsg_code();
                             StatMethods.showMsgCode(ActivityHome.this, msgCode);
                         }
@@ -287,6 +292,7 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
 
     private void getVideoList(String selectedClassId, String selectedSubjectId)
     {
+        StatMethods.showDialog(ActivityHome.this);
         error_layout.setVisibility(View.GONE);
         rvVideos.setVisibility(View.GONE);
 
@@ -314,15 +320,18 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
                                 videoAdapter = new VideoAdapter(ActivityHome.this, videoEntityArrayList, isSubscribe, selectedClassId, selectedClassFee, selectedClassName);
                                 rvVideos.setAdapter(videoAdapter);
                                 videoAdapter.notifyDataSetChanged();
+                                StatMethods.dismissDialog();
                             }
                             else
                             {
+                                StatMethods.dismissDialog();
                                 rvVideos.setVisibility(View.GONE);
                                 error_layout.setVisibility(View.VISIBLE);
                             }
                         }
                         else if (status.equals(AppConstants.ERROR))
                         {
+                            StatMethods.dismissDialog();
                             int msgCode = entity.getMsg_code();
                             StatMethods.showMsgCode(ActivityHome.this, msgCode);
                         }
@@ -361,13 +370,14 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
     }
 
     @Override
-    public void playVideoClicked(String url, int videoID, String title, String thumbnail_path, String desc)
+    public void playVideoClicked(String url, int videoID, String title, String thumbnail_path, String desc, int id)
     {
         Intent ii = new Intent(ActivityHome.this, ActivityContentDetail.class);
         ii.putExtra(AppConstants.STRINGS.VIDEO_URL, url);
         ii.putExtra(AppConstants.STRINGS.VIDEO_TITLE, title);
         ii.putExtra(AppConstants.STRINGS.VIDEO_IMG, thumbnail_path);
         ii.putExtra(AppConstants.STRINGS.VIDEO_DESC, desc);
+        ii.putExtra(AppConstants.STRINGS.VIDEO_ID, String.valueOf(id));
         ii.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(ii);
     }

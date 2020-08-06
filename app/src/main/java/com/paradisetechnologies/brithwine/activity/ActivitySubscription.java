@@ -263,7 +263,7 @@ public class ActivitySubscription extends AppCompatActivity implements PaymentRe
                             String status = entity.getStatus();
                             if (status.equals(AppConstants.SUCCESS))
                             {
-                                StatMethods.showToastShort(ActivitySubscription.this, getString(R.string.payment_successfull));
+                                StatMethods.showToastShort(ActivitySubscription.this, getString(R.string.payment_cancel));
                             }
                         }
                     }

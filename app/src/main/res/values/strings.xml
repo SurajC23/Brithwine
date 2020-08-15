@@ -45,8 +45,8 @@
     <string name="subscribe_now">Subscribe now</string>
     <string name="havent_subscribe">You haven\'t subscribe for this \nclass to watch this videos.</string>
     <string name="token_mistmacth">User token mistmatch \n Please login again</string>
-    <string name="subscribe_home">Subscribed</string>
-    <string name="unsubscribe_home">Unsubscribed</string>
+    <string name="subscribe_home">Subscribe</string>
+    <string name="unsubscribe_home">subscribed</string>
     <string name="video_details">Video Details</string>
     <string name="payment_successfull">Payment successful</string>
     <string name="payment_cancel">Payment cancelled</string>

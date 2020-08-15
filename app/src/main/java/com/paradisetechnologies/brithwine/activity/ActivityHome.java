@@ -133,12 +133,12 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
                 if (classEntity.getIs_subscribed() == 1)
                 {
                     isSubscribe = true;
-                    tvSubscribed.setText(getString(R.string.subscribe_home));
+                    tvSubscribed.setText(getString(R.string.unsubscribe_home));
                 }
                 else
                 {
                     isSubscribe = false;
-                    tvSubscribed.setText(getString(R.string.unsubscribe_home));
+                    tvSubscribed.setText(getString(R.string.subscribe_home));
                 }
 
                 getSubjectList(selectedClassId);
@@ -184,7 +184,7 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
             @Override
             public void onClick(View view)
             {
-                if (tvSubscribed.getText().equals(getString(R.string.unsubscribe_home)))
+                if (tvSubscribed.getText().equals(getString(R.string.subscribe_home)))
                 {
                     Intent ii = new Intent(ActivityHome.this, ActivitySubscription.class);
                     ii.putExtra(AppConstants.STRINGS.CLASS_ID, selectedClassId);
@@ -193,7 +193,7 @@ public class ActivityHome extends AppCompatActivity implements DownloadClick, Pl
                     ii.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(ii);
                 }
-                else if (tvSubscribed.getText().equals(getString(R.string.subscribe_home)))
+                else if (tvSubscribed.getText().equals(getString(R.string.unsubscribe_home)))
                 {
                     StatMethods.showToastShort(ActivityHome.this, getString(R.string.already_subscribed));
                 }

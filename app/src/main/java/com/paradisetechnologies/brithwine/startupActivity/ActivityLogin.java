@@ -115,11 +115,15 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
         switch (view.getId())
         {
             case R.id.tvSignUp:
-                StatMethods.startNewActivity(ActivityLogin.this, ActivitySignup.class);
+                //StatMethods.startNewActivity(ActivityLogin.this, ActivitySignup.class);
+                Intent signupIntent = new Intent(ActivityLogin.this, ActivitySignup.class);
+                startActivity(signupIntent);
                 break;
 
             case R.id.tvForgotPassword:
-                StatMethods.startNewActivity(ActivityLogin.this, ActivityForgotPassword.class);
+                //StatMethods.startNewActivity(ActivityLogin.this, ActivityForgotPassword.class);
+                Intent forgotPasswordIntent = new Intent(ActivityLogin.this, ActivityForgotPassword.class);
+                startActivity(forgotPasswordIntent);
                 break;
 
             case R.id.tvLogin:

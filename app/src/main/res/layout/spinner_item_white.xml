@@ -8,7 +8,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:singleLine="true"
-    android:background="@color/black"
-    android:textColor="@color/white"
+    android:background="@color/white"
+    android:textColor="@color/black"
     android:textSize="@dimen/sp15"
     app:fontface="qmedium" />

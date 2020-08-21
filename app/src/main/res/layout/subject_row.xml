@@ -13,7 +13,7 @@
         android:src="@drawable/checked_grey"
         android:layout_centerVertical="true"/>
 
-    <com.paradisetechnologies.brithwine.fonts.MyTextView
+    <com.paradisetechnologies.brigthwing.fonts.MyTextView
         android:id="@+id/tvSubjectName"
         android:layout_toRightOf="@id/ivChecked"
         android:layout_width="wrap_content"

@@ -39,7 +39,7 @@
 
                 </RelativeLayout>
 
-                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                <com.paradisetechnologies.brigthwing.fonts.MyTextView
                     android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
 
             </LinearLayout>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:id="@+id/tvSubscribed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:id="@+id/tv_errorMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
                 android:text="@string/videolist_error"
                 app:fontface="qbold"/>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:id="@+id/tv_middleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -25,7 +25,7 @@
                 android:padding="@dimen/dp2"
                 android:src="@drawable/ic_back_arrow"/>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:layout_toRightOf="@id/ivBackArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             android:visibility="visible"
             jwp:jw_autostart="true" />
 
-        <com.paradisetechnologies.brithwine.fonts.MyTextView
+        <com.paradisetechnologies.brigthwing.fonts.MyTextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:textColor="@color/cherry_red"
             app:fontface="mbold"/>
 
-        <com.paradisetechnologies.brithwine.fonts.MyTextView
+        <com.paradisetechnologies.brigthwing.fonts.MyTextView
             android:id="@+id/tvDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

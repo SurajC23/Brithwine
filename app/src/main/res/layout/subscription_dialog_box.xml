@@ -22,7 +22,7 @@
         android:layout_marginTop="-5dp"
         app:srcCompat="@drawable/lock" />
 
-    <com.paradisetechnologies.brithwine.fonts.MyTextView
+    <com.paradisetechnologies.brigthwing.fonts.MyTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -33,7 +33,7 @@
         android:textSize="@dimen/sp18"
         app:fontface="qmedium"/>
 
-    <com.paradisetechnologies.brithwine.fonts.MyTextView
+    <com.paradisetechnologies.brigthwing.fonts.MyTextView
         android:id="@+id/tvSubscribeNow"
         style="@style/BtnClick"
         android:layout_marginTop="@dimen/dp10"

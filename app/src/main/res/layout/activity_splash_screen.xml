@@ -20,7 +20,7 @@
             android:src="@drawable/brithwine_logo"
             tools:ignore="ContentDescription"/>
 
-        <com.paradisetechnologies.brithwine.fonts.MyTextView
+        <com.paradisetechnologies.brigthwing.fonts.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-10dp"
@@ -34,7 +34,7 @@
 
     </LinearLayout>
 
-    <com.paradisetechnologies.brithwine.fonts.MyTextView
+    <com.paradisetechnologies.brigthwing.fonts.MyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

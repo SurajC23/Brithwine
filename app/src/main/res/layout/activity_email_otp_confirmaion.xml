@@ -50,7 +50,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                <com.paradisetechnologies.brigthwing.fonts.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp10"
@@ -59,7 +59,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp22" />
 
-                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                <com.paradisetechnologies.brigthwing.fonts.MyTextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
@@ -74,7 +74,7 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    <com.paradisetechnologies.brigthwing.fonts.MyEditText
                         android:id="@+id/et_one"
                         android:layout_width="@dimen/dp40"
                         android:layout_height="@dimen/dp40"
@@ -86,7 +86,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp15" />
 
-                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    <com.paradisetechnologies.brigthwing.fonts.MyEditText
                         android:id="@+id/et_two"
                         android:layout_width="@dimen/dp40"
                         android:layout_height="@dimen/dp40"
@@ -98,7 +98,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp15"/>
 
-                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    <com.paradisetechnologies.brigthwing.fonts.MyEditText
                         android:id="@+id/et_three"
                         android:layout_width="@dimen/dp40"
                         android:layout_height="@dimen/dp40"
@@ -110,7 +110,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp15" />
 
-                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    <com.paradisetechnologies.brigthwing.fonts.MyEditText
                         android:id="@+id/et_four"
                         android:layout_width="@dimen/dp40"
                         android:layout_height="@dimen/dp40"
@@ -122,7 +122,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp15" />
 
-                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    <com.paradisetechnologies.brigthwing.fonts.MyEditText
                         android:id="@+id/et_five"
                         android:layout_width="@dimen/dp40"
                         android:layout_height="@dimen/dp40"
@@ -134,7 +134,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp15" />
 
-                    <com.paradisetechnologies.brithwine.fonts.MyEditText
+                    <com.paradisetechnologies.brigthwing.fonts.MyEditText
                         android:id="@+id/et_six"
                         android:layout_width="@dimen/dp40"
                         android:layout_height="@dimen/dp40"
@@ -148,7 +148,7 @@
 
                 </LinearLayout>
 
-                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                <com.paradisetechnologies.brigthwing.fonts.MyTextView
                     android:id="@+id/tvProceed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

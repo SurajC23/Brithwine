@@ -20,7 +20,7 @@
             android:padding="@dimen/dp2"
             android:src="@drawable/ic_back_arrow"/>
 
-        <com.paradisetechnologies.brithwine.fonts.MyTextView
+        <com.paradisetechnologies.brigthwing.fonts.MyTextView
             android:id="@+id/tvClassName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 android:scaleType="fitXY"
                 android:layout_marginTop="@dimen/dp10"/>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:id="@+id/tvClassFee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 android:textSize="@dimen/sp45"
                 app:fontface="mbold"/>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="per year"
@@ -64,7 +64,7 @@
 
         </LinearLayout>
 
-        <com.paradisetechnologies.brithwine.fonts.MyTextView
+        <com.paradisetechnologies.brigthwing.fonts.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -87,7 +87,7 @@
         android:layout_centerHorizontal="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-    <com.paradisetechnologies.brithwine.fonts.MyTextView
+    <com.paradisetechnologies.brigthwing.fonts.MyTextView
         android:id="@+id/tvPay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

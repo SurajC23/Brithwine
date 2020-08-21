@@ -25,7 +25,7 @@
                 android:padding="@dimen/dp2"
                 android:src="@drawable/ic_back_arrow"/>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:layout_toRightOf="@id/ivBackArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 android:src="@drawable/brithwine_logo"
                 tools:ignore="ContentDescription" />
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-10dp"
@@ -81,7 +81,7 @@
                 android:hint="@string/your_name"
                 android:theme="@style/TextLabelNew">
 
-                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                <com.paradisetechnologies.brigthwing.fonts.MyEditText
                     android:id="@+id/etName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                 android:hint="@string/your_phone"
                 android:theme="@style/TextLabelNew">
 
-                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                <com.paradisetechnologies.brigthwing.fonts.MyEditText
                     android:id="@+id/etPhoneno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                 android:hint="@string/your_email"
                 android:theme="@style/TextLabelNew">
 
-                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                <com.paradisetechnologies.brigthwing.fonts.MyEditText
                     android:id="@+id/etEmailID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                 android:hint="@string/password"
                 android:theme="@style/TextLabel">
 
-                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                <com.paradisetechnologies.brigthwing.fonts.MyEditText
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -149,11 +149,12 @@
                 android:layout_height="@dimen/dp40"
                 android:layout_marginTop="@dimen/dp20"/>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:id="@+id/tvSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp30"
+                android:layout_marginBottom="@dimen/dp50"
                 android:background="@drawable/button_bg"
                 android:gravity="center"
                 android:paddingTop="@dimen/dp15"

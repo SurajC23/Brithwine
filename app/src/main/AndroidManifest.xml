@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.paradisetechnologies.brithwine">
+    package="com.paradisetechnologies.brigthwing">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -57,7 +57,7 @@
 
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_WT8Gn7My3mDekR" />
+            android:value="rzp_live_d2l5BWjVjUHY14" />
 
         <meta-data
             android:name="JW_LICENSE_KEY"

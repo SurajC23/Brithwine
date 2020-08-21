@@ -27,7 +27,7 @@
                 android:padding="@dimen/dp2"
                 android:src="@drawable/ic_back_arrow"/>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:layout_toRightOf="@id/ivBackArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

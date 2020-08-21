@@ -28,7 +28,7 @@
                 android:src="@drawable/brithwine_logo"
                 tools:ignore="ContentDescription"/>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-10dp"
@@ -47,7 +47,7 @@
                 android:hint="@string/your_email"
                 android:theme="@style/TextLabelNew">
 
-                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                <com.paradisetechnologies.brigthwing.fonts.MyEditText
                     android:id="@+id/etEmailID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:layout_marginRight="@dimen/dp5"
                 android:visibility="gone">
 
-                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                <com.paradisetechnologies.brigthwing.fonts.MyTextView
                     android:id="@+id/tvEmailVerify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                 android:hint="@string/password"
                 android:theme="@style/TextLabel">
 
-                <com.paradisetechnologies.brithwine.fonts.MyEditText
+                <com.paradisetechnologies.brigthwing.fonts.MyEditText
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:id="@+id/tvForgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
                 android:textSize="@dimen/sp13"
                 app:fontface="qbold"/>
 
-            <com.paradisetechnologies.brithwine.fonts.MyTextView
+            <com.paradisetechnologies.brigthwing.fonts.MyTextView
                 android:id="@+id/tvLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -134,11 +134,12 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical|center"
                 android:layout_marginTop="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp50"
                 android:foregroundGravity="center_horizontal"
                 android:layout_gravity="center_horizontal|center"
                 android:orientation="horizontal">
 
-                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                <com.paradisetechnologies.brigthwing.fonts.MyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
@@ -147,7 +148,7 @@
                     android:textSize="@dimen/sp13"
                     app:fontface="qmedium"/>
 
-                <com.paradisetechnologies.brithwine.fonts.MyTextView
+                <com.paradisetechnologies.brigthwing.fonts.MyTextView
                     android:id="@+id/tvSignUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
